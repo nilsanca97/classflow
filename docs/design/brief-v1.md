@@ -1,12 +1,12 @@
-# Brief de diseño – App para la gestión de una clase (v1)
+# Brief de diseño – ClassFlow (v1)
 
-Sep 30, 2026 · @Nil
+Sep 30, 2026 · @Nil · actualizado el 6 de octubre de 2026 (nombre ClassFlow y referencias a la especificación v1.1)
 
 ## Cómo usar este brief
 
-Este brief define el diseño visual y de interacción de la v1 y se entrega junto a la **Especificación v1** (26/09/2026). Con los dos documentos se debe poder diseñar todas las pantallas sin más preguntas.
+Este brief define el diseño visual y de interacción de la v1 y se entrega junto a la **[Especificación v1.1](../spec/especificacion-v1.1.md)** (06/10/2026). Con los dos documentos se debe poder diseñar todas las pantallas sin más preguntas.
 
-- **Si el brief y la especificación no coinciden, prevalece el brief.** Las diferencias están listadas en "Diferencias con la especificación v1".
+- **La especificación v1.1 ya incorpora las decisiones de este brief**, así que ambos documentos deben coincidir. Si aun así hubiera una discrepancia en algo visual o de interacción, prevalece el brief. Los cambios respecto a la v1.0 están en "Diferencias con la especificación v1.0".
 - **La interfaz está en inglés.** Los textos entre comillas en inglés ("Add event", "Paste a link…") son textos literales de la interfaz.
 - **Dispositivo:** portátil con Chrome. Diseñar para 1366 × 768 como mínimo y que escale bien hasta 1920 × 1080. El móvil queda fuera de la v1.
 - **Fecha de ejemplo para los diseños:** martes 29 de septiembre de 2026 como "hoy", semana del 28 de septiembre al 2 de octubre.
@@ -118,7 +118,7 @@ Paleta cerrada de colores más intensos, distinta de los pasteles, para que las 
 
 ### Barra superior de la app (fija, en todas las pantallas)
 
-- **Izquierda:** nombre de la app, "My class", en coral oscuro.
+- **Izquierda:** nombre de la app, "ClassFlow", en coral oscuro.
 - **Centro-izquierda:** tres pestañas con icono y texto: **Planning**, **Lists** y **Students**. La activa, en coral (#F5C4B3, texto #712B13).
 - **Derecha:** el **indicador de copia de seguridad** (ver "Settings, primer arranque, copias de seguridad y avisos") y el enlace **"Settings"** con icono de engranaje.
 - **Al abrir la app** se muestra siempre **Planning, vista semanal, semana actual**. No hay pantalla de inicio aparte (salvo la bienvenida del primer arranque).
@@ -352,7 +352,7 @@ Ventana centrada y ancha (unos 680 px), con una navegación lateral de dos secci
 - **Subjects:** la ventana de la asignatura descrita en el Planning, con la lista de las 16 a la izquierda.
 - **Backup:**
   - "Last backup: today at 10:42", con icono de nube verde.
-  - Ubicación del archivo ("Documents / School / myclass-backup.json") y el enlace "Change".
+  - Ubicación del archivo ("Documents / School / classflow-backup.json") y el enlace "Change".
   - Botones secundarios "Export a copy" e "Import a copy", con la nota "Importing replaces all current data. You'll be asked to confirm."
   - **Confirmación de importar** (roja): "Replace all your data?" — "Everything in the app will be replaced by this backup. This can't be undone." Botones "Cancel" / "Replace my data".
 
@@ -360,7 +360,7 @@ Ventana centrada y ancha (unos 680 px), con una navegación lateral de dos secci
 
 Solo la primera vez, antes de entrar al Planning. Una ventana centrada con:
 
-1. Icono redondo coral (school), título "Welcome to My class" y el texto: "Your data is saved only on this computer. To keep it safe, choose a folder where a backup copy will be saved automatically."
+1. Icono redondo coral (school), título "Welcome to ClassFlow" y el texto: "Your data is saved only on this computer. To keep it safe, choose a folder where a backup copy will be saved automatically."
 2. Botón principal "Choose backup file". Debajo, en pequeño: "Already have a backup? Import it".
 3. Tras elegir el archivo, un paso breve con una ilustración del aviso de permiso de Chrome y el texto: "Chrome will ask for permission. Choose "Allow on every visit" so backups run on their own." Botón "Got it".
 4. Después se abre el Planning en la semana actual.
@@ -421,11 +421,11 @@ Usar datos realistas: el horario de la especificación, unos 25 alumnos con nomb
 - [ ] Los tres estados del indicador de copia y la franja de aviso
 - [ ] Estados vacíos de listas y alumnos
 
-## Diferencias con la especificación v1
+## Diferencias con la especificación v1.0
 
-En estos puntos manda el brief. Sirven también como lista de cambios para actualizar la especificación.
+Decisiones de este brief que cambiaban la especificación v1.0. Todas están ya incorporadas en la especificación v1.1; se conservan aquí como registro.
 
-| Apartado | Especificación v1 | Decisión del brief |
+| Apartado | Especificación v1.0 | Decisión del brief |
 | --- | --- | --- |
 | Decisiones técnicas – Copias | Copia a un archivo, posiblemente en una carpeta sincronizada con Google Drive | Archivo local en la carpeta que elija la profesora, sin Drive. Se recomienda el permiso "Allow on every visit" de Chrome. Indicador de copia en la barra superior y aviso a los 3 días sin copia |
 | Planning – Asignaturas | La profesora elige el color | Paleta cerrada de 16 pasteles, con colores iniciales fijados en este brief; se pueden repetir entre asignaturas. Nombre no editable en la v1 |
