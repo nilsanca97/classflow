@@ -1,0 +1,29 @@
+# Operating system
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+coverage/
+
+# Logs
+*.log
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# ClassFlow backup files: they hold real class data and must never be committed
+*backup*.json
+backups/
