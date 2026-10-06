@@ -37,15 +37,20 @@ The documents are written in Spanish.
 | [Specification changelog](docs/spec/CHANGELOG.md) | What changed between versions, and why |
 | [Specification v1.0](docs/spec/especificacion-v1.0.md) | Original specification, kept unchanged as a record |
 | [Design brief](docs/design/brief-v1.md) | Visual style, colour palettes, navigation and every screen in detail |
+| [Project context](docs/project-context.md) | Who the app is for, goals, constraints and glossary |
+| [Plan](docs/plan.md) | Phases and tasks, from documentation to delivery |
 
 ## Repository structure
 
 ```
 classflow/
 ├── README.md
+├── AGENTS.md              Instructions for AI coding agents
 └── docs/
-    ├── spec/      Functional specification, one file per version, and its changelog
-    └── design/    Design brief
+    ├── project-context.md
+    ├── plan.md
+    ├── spec/              Functional specification, one file per version, and its changelog
+    └── design/            Design brief
 ```
 
 ## Roadmap
@@ -56,7 +61,7 @@ classflow/
 - [ ] Tech stack decision
 - [ ] Implementation
 
-Ideas left for later versions are listed at the end of the [specification](docs/spec/especificacion-v1.1.md#fuera-de-alcance-y-mejoras-futuras).
+The detailed plan is in [docs/plan.md](docs/plan.md). Ideas left for later versions are listed at the end of the [specification](docs/spec/especificacion-v1.1.md#fuera-de-alcance-y-mejoras-futuras).
 
 ## Privacy
 
