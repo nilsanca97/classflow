@@ -24,6 +24,11 @@ coverage/
 .env.*
 !.env.example
 
-# ClassFlow backup files: they hold real class data and must never be committed
+# ClassFlow exported data: it holds real class data and must never be committed
+classflow-data-*.json
 *backup*.json
 backups/
+
+# Supabase local files
+supabase/.temp/
+supabase/.branches/
