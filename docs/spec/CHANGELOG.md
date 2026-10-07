@@ -2,6 +2,44 @@
 
 Cada versión de la especificación se conserva como archivo propio y no se modifica después de publicarse. Aquí se resume qué cambió en cada una y por qué.
 
+## v1.2 – 7 de octubre de 2026
+
+[especificacion-v1.2.md](especificacion-v1.2.md)
+
+Incorpora la [decisión de stack](../decisions/0001-tech-stack.md). El cambio de fondo es que **los datos pasan del navegador a la nube**, con registro e inicio de sesión. Motivos: la profesora querrá usar la app desde más de un dispositivo, el proyecto aspira a servir a más profesoras, y el portátil es del colegio, donde los datos locales y su copia a archivo eran frágiles.
+
+### General
+
+- La app deja de ser una PWA local: es una web que **necesita internet** y no se instala.
+- Stack definido: React, TypeScript, Tailwind CSS, Supabase y Vercel.
+- Nuevos estados previstos en todas las pantallas: carga, error y falta de conexión.
+
+### Cuenta e inicio de sesión
+
+- Nuevo **registro** con nombre y correo, y nuevo **inicio de sesión por enlace al correo**, sin contraseña.
+- En la v1 solo pueden registrarse los **correos autorizados**, porque una cuenta nueva no tendría horario hasta que exista el editor.
+- El horario base se carga como datos iniciales de la cuenta, no con la app.
+
+### Copias de seguridad
+
+- **Se eliminan** la copia automática a archivo, el permiso de Chrome, el indicador de copia, el aviso a los 3 días, la importación y la pantalla de bienvenida que pedía elegir el archivo.
+- Se añade **"Export my data"**, que descarga todos los datos de la cuenta.
+
+### Alumnos
+
+- La fecha de nacimiento se sustituye por el **cumpleaños (día y mes)**, sin año, para reducir los datos personales en la nube. Desaparece la columna de edad.
+- El campo de observaciones avisa de que no se escriban datos sensibles.
+
+### Settings
+
+- Pasa a tener tres secciones: Subjects, Account y Your data. Desaparece Backup.
+
+### Fuera de alcance
+
+- "Varios usuarios" deja de estar descartado: el registro abierto a más profesoras pasa a **futuro**. Queda descartado solo compartir una clase entre varias profesoras.
+- Se retiran "copia en la nube", "sincronización completa" y "sincronizar solo el planning", que ya no aplican.
+- Nuevas mejoras futuras o posibles: iniciar sesión con Google, diseño adaptado al móvil, uso sin conexión, importar datos y eliminar la cuenta desde la app.
+
 ## v1.1 – 6 de octubre de 2026
 
 [especificacion-v1.1.md](especificacion-v1.1.md)
