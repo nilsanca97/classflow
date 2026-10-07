@@ -57,8 +57,8 @@ This repository is public.
 - One branch per task, with a prefix: `docs/...`, `design/...`, `feat/...`, `fix/...`.
 - Commit messages are in English and follow `type: short summary`, with these types: `docs`, `design`, `feat`, `fix`, `refactor`, `test`, `chore`. Add a short body when the reason is not obvious.
 - **Do not add AI attribution to commits:** no `Co-Authored-By` lines and no session links.
+- **The author commits and pushes.** Do not run `git commit` or `git push`. When a change is ready, say which files changed and propose a commit message.
 - Do not rewrite history that has already been pushed.
-- Do not push unless asked to.
 
 ## Commands
 

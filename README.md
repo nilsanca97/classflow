@@ -46,6 +46,7 @@ The documents are written in Spanish.
 classflow/
 ├── README.md
 ├── AGENTS.md              Instructions for AI coding agents
+├── CLAUDE.md              Points Claude Code to AGENTS.md
 └── docs/
     ├── project-context.md
     ├── plan.md
