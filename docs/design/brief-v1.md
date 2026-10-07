@@ -1,12 +1,12 @@
 # Brief de diseño – ClassFlow (v1)
 
-Sep 30, 2026 · @Nil · actualizado el 6 de octubre de 2026 (nombre ClassFlow y referencias a la especificación v1.1)
+Sep 30, 2026 · @Nil · actualizado el 7 de octubre de 2026 (datos en la nube, registro e inicio de sesión, según la especificación v1.2)
 
 ## Cómo usar este brief
 
-Este brief define el diseño visual y de interacción de la v1 y se entrega junto a la **[Especificación v1.1](../spec/especificacion-v1.1.md)** (06/10/2026). Con los dos documentos se debe poder diseñar todas las pantallas sin más preguntas.
+Este brief define el diseño visual y de interacción de la v1 y se entrega junto a la **[Especificación v1.2](../spec/especificacion-v1.2.md)** (07/10/2026). Con los dos documentos se debe poder diseñar todas las pantallas sin más preguntas.
 
-- **La especificación v1.1 ya incorpora las decisiones de este brief**, así que ambos documentos deben coincidir. Si aun así hubiera una discrepancia en algo visual o de interacción, prevalece el brief. Los cambios respecto a la v1.0 están en "Diferencias con la especificación v1.0".
+- **El brief y la especificación v1.2 deben coincidir.** Si aun así hubiera una discrepancia en algo visual o de interacción, prevalece el brief; en el comportamiento, la especificación.
 - **La interfaz está en inglés.** Los textos entre comillas en inglés ("Add event", "Paste a link…") son textos literales de la interfaz.
 - **Dispositivo:** portátil con Chrome. Diseñar para 1366 × 768 como mínimo y que escale bien hasta 1920 × 1080. El móvil queda fuera de la v1.
 - **Fecha de ejemplo para los diseños:** martes 29 de septiembre de 2026 como "hoy", semana del 28 de septiembre al 2 de octubre.
@@ -43,7 +43,7 @@ Sensación **cálida y amable**: fondo crema, tonos pastel suaves, esquinas redo
 | Coral: texto | #712B13 | Sobre coral y en enlaces de acción |
 | Coral: borde | #F0997B | Caja del día actual, campo activo |
 | Aviso (ámbar) | fondo #FAEEDA, texto #633806, icono #BA7517 |  |
-| Correcto (verde) | fondo #EAF3DE, texto #27500A | Indicador de copia al día |
+| Correcto (verde) | fondo #EAF3DE, texto #27500A; texto suelto #3B6D11 | Confirmación de guardado ("✓ Saved") |
 | Destructivo (rojo) | fondo #F7C1C1, texto #791F1F; enlaces #A32D2D | Botones y opciones de borrar o anular |
 
 **El coral está reservado** para: "hoy", la pestaña activa, el botón principal de cada pantalla y los enlaces de acción. Ninguna asignatura usa coral ni naranja.
@@ -56,7 +56,7 @@ Sensación **cálida y amable**: fondo crema, tonos pastel suaves, esquinas redo
 
 ### Iconos y formas
 
-- **Tabler Icons** (versión de contorno), a 16–18 px. Iconos clave: pin (recurso fijo), brand-google-drive, brand-youtube, link (enlace genérico), notes (tiene notas), star (evento), beach (día sin clase), dots (menú ⋯), pencil, trash, calendar-off (anular), cloud-check (copia), settings.
+- **Tabler Icons** (versión de contorno), a 16–18 px. Iconos clave: pin (recurso fijo), brand-google-drive, brand-youtube, link (enlace genérico), notes (tiene notas), star (evento), beach (día sin clase), dots (menú ⋯), pencil, trash, calendar-off (anular), settings, mail (enlace enviado), download (exportar), logout (cerrar sesión), wifi-off (sin conexión), alert-triangle (aviso).
 - Radios: 8 px en celdas y campos, 10–12 px en tarjetas y ventanas, 999 px en botones de opción, etiquetas y selectores.
 - Sombras muy suaves solo en ventanas y menús desplegables.
 - Área mínima pulsable de 32 × 32 px. Estados de hover visibles en todo lo pulsable y foco visible con teclado.
@@ -120,14 +120,14 @@ Paleta cerrada de colores más intensos, distinta de los pasteles, para que las 
 
 - **Izquierda:** nombre de la app, "ClassFlow", en coral oscuro.
 - **Centro-izquierda:** tres pestañas con icono y texto: **Planning**, **Lists** y **Students**. La activa, en coral (#F5C4B3, texto #712B13).
-- **Derecha:** el **indicador de copia de seguridad** (ver "Settings, primer arranque, copias de seguridad y avisos") y el enlace **"Settings"** con icono de engranaje.
-- **Al abrir la app** se muestra siempre **Planning, vista semanal, semana actual**. No hay pantalla de inicio aparte (salvo la bienvenida del primer arranque).
+- **Derecha:** el enlace **"Settings"** con icono de engranaje y, a su lado, el **círculo de la cuenta** con la inicial de la profesora (fondo #F1EFE8, texto #444441). Pulsarlo abre Settings → Account.
+- **Al abrir la app** con la sesión iniciada se muestra siempre **Planning, vista semanal, semana actual**. Sin sesión, se muestra la pantalla de acceso (ver "Acceso, Settings y estados del sistema").
 
 ### Patrones que se repiten en toda la app
 
 - **Ventana centrada (modal)** para todo lo que se abre: sesión, evento, alumno, nueva lista, festivos, asignatura, Settings. Fondo atenuado detrás, X arriba a la derecha y tecla Esc para cerrar. Las ventanas de consulta con guardado automático (sesión, alumno) también se cierran pulsando fuera; los formularios de creación, no.
 - **Menú "⋯"** en la cabecera de ventanas y páginas para las acciones secundarias. Las acciones destructivas del menú van en rojo (#A32D2D) y al final.
-- **Guardado automático** en todo lo que se edita (notas, campos de la ficha, opciones, colores): sin botón de guardar, con un pequeño "✓ Saved" en verde bajo el campo. Solo crear algo nuevo lleva botón ("Add student", "Create list", "Add").
+- **Guardado automático** en todo lo que se edita (notas, campos de la ficha, opciones, colores): sin botón de guardar. Bajo el campo se ve "Saving…" en gris mientras se guarda y "✓ Saved" en verde al terminar; si falla, "Couldn't save · Retry" en rojo (ver "Estados del sistema"). Solo crear algo nuevo lleva botón ("Add student", "Create list", "Add").
 - **Confirmaciones:** ventana pequeña centrada con título en forma de pregunta ("Delete Biel permanently?"), una o dos frases que explican qué pasará, un enlace para volver ("Cancel" / "Go back") y un botón que dice exactamente la acción. En rojo suave si es destructiva, con icono de alerta.
 - **Botones:** principal en coral relleno; secundario en blanco con borde #D3D1C7; enlaces de acción en coral oscuro. Un botón se muestra apagado (no oculto) mientras falte un dato obligatorio.
 - **Selectores de dos o tres valores** (Day · Week · Month, Active / Archived, Current / Left, Yes / No): control segmentado en forma de píldora, con el valor activo en blanco sobre fondo #F1EFE8.
@@ -297,7 +297,7 @@ No hay plantillas ni atajos de opciones guardadas.
 
 ## Alumnos
 
-En la v1, la ficha solo tiene **Name, Date of birth, Takes the bus y Observations**. Las alergias y el contacto de emergencia no aparecen en ninguna parte de la app.
+En la v1, la ficha solo tiene **Name, Birthday, Takes the bus y Observations**. El cumpleaños es solo día y mes: no se guarda el año ni se muestra la edad. Las alergias y el contacto de emergencia no aparecen en ninguna parte de la app.
 
 ### Listado
 
@@ -309,7 +309,6 @@ En la v1, la ficha solo tiene **Name, Date of birth, Takes the bus y Observation
 | Columna | Contenido |
 | --- | --- |
 | Name | Nombre, peso 500 |
-| Age | Edad en años ("6") |
 | Birthday | Día y mes ("12 Mar") |
 | Bus | Icono de bus si va en bus; guion gris si no |
 | Observations | Texto recortado a 2 líneas con "…"; guion gris si está vacío. Es la columna más ancha |
@@ -322,16 +321,16 @@ En la v1, la ficha solo tiene **Name, Date of birth, Takes the bus y Observation
 Ventana centrada "New student" con:
 
 - "Name \*" (obligatorio).
-- "Date of birth" (campo de fecha con calendario).
+- "Birthday": dos desplegables, día y mes ("12" · "March"). Sin año.
 - "Takes the bus" (selector Yes / No; por defecto No).
-- "Observations" (área de texto; texto de ejemplo "Pick-up, reminders…").
+- "Observations" (área de texto; texto de ejemplo "Pick-up, reminders…"). Debajo, una ayuda en gris: "Don't write sensitive information here (health, family details)."
 - Botones "Cancel" y "Add student" (apagado hasta que haya nombre).
 
 **Aviso de nombre duplicado:** al escribir un nombre que ya existe, el campo toma borde ámbar y debajo aparece un aviso ámbar: "There is already a student called Marc. Add the first letter of the surname, e.g. "Marc S."". No bloquea el guardado. También aparece al renombrar en la ficha.
 
 ### Ficha del alumno
 
-- Ventana centrada. **Cabecera:** círculo con la inicial (fondo neutro #F1EFE8, texto #444441), el nombre (16–18 px) y, debajo, "6 years old". A la derecha, el menú "⋯" y la X.
+- Ventana centrada. **Cabecera:** círculo con la inicial (fondo neutro #F1EFE8, texto #444441), el nombre (16–18 px) y, debajo, "Birthday: 12 March" (o nada si no tiene). A la derecha, el menú "⋯" y la X.
 - **Cuerpo:** los mismos cuatro campos que en "New student", **siempre editables y con guardado automático** ("✓ Saved").
 - **Menú "⋯":** "Mark as left" y "Delete student" (rojo).
 - **Confirmación de baja:** "Mark Biel as left?" — "He won't appear in the student list or in new lists. He stays in existing lists marked as "Left"." Botones "Cancel" / "Mark as left".
@@ -343,44 +342,54 @@ Ventana centrada "New student" con:
 - Al reincorporarlo, vuelve al listado y a las listas nuevas, y en las listas antiguas deja de estar marcado como "Left".
 - El menú "⋯" solo ofrece "Delete student".
 
-## Settings, primer arranque, copias de seguridad y avisos
+## Acceso, Settings y estados del sistema
+
+### Pantallas de acceso
+
+Se muestran cuando no hay sesión iniciada. Página completa con fondo crema y, centrada, una tarjeta blanca de unos 400 px de ancho. Arriba de la tarjeta, el icono redondo coral (school) y el nombre "ClassFlow". No se ve la barra superior de la app.
+
+| Pantalla | Contenido |
+| --- | --- |
+| **Sign in** | Título "Welcome to ClassFlow". Texto: "Enter your email and we'll send you a link to sign in. No password needed." Campo "Email". Botón principal "Send me a link". Debajo, en pequeño: "New here? Create your account" |
+| **Create your account** | Título "Create your account". Campos "Your name" y "Email". Botón principal "Create account". Debajo: "Already have an account? Sign in" |
+| **Check your email** | Icono mail. Título "Check your email". Texto: "We sent a link to laura@school.org. Open it on this device to sign in." Debajo: "Didn't get it? Send again" (disponible pasados 60 segundos) y "Use a different email" |
+
+Mensajes dentro de la tarjeta, bajo el campo de correo:
+
+- **Correo no autorizado** (aviso ámbar): "This email doesn't have access to ClassFlow yet."
+- **Correo sin cuenta al iniciar sesión** (aviso ámbar): "We couldn't find an account with this email." con el enlace "Create your account".
+- **Correo con formato incorrecto** (texto rojo): "Enter a valid email address."
+- **Enlace caducado** (aviso ámbar sobre la pantalla Sign in): "This link has expired. Enter your email to get a new one."
+- **Sesión caducada:** "Please sign in again."
+
+El botón principal muestra un indicador de carga mientras se envía el enlace. Tras entrar por primera vez, la profesora va directamente al Planning con su horario ya cargado; no hay pasos de bienvenida.
 
 ### Settings
 
-Ventana centrada y ancha (unos 680 px), con una navegación lateral de dos secciones:
+Ventana centrada y ancha (unos 680 px), con una navegación lateral de tres secciones:
 
 - **Subjects:** la ventana de la asignatura descrita en el Planning, con la lista de las 16 a la izquierda.
-- **Backup:**
-  - "Last backup: today at 10:42", con icono de nube verde.
-  - Ubicación del archivo ("Documents / School / classflow-backup.json") y el enlace "Change".
-  - Botones secundarios "Export a copy" e "Import a copy", con la nota "Importing replaces all current data. You'll be asked to confirm."
-  - **Confirmación de importar** (roja): "Replace all your data?" — "Everything in the app will be replaced by this backup. This can't be undone." Botones "Cancel" / "Replace my data".
+- **Account:**
+  - "Your name": campo editable con guardado automático.
+  - "Email": solo lectura.
+  - Botón secundario "Sign out", con icono logout. Cierra la sesión sin pedir confirmación y vuelve a la pantalla Sign in.
+- **Your data:**
+  - Texto: "Download a copy of everything in your account: subjects, resources, notes, events, students and lists."
+  - Botón secundario "Export my data", con icono download. Descarga un archivo (`classflow-data-2026-10-07.json`).
+  - Al terminar, un mensaje breve bajo el botón: "✓ Your data was downloaded".
 
-### Primer arranque (bienvenida)
+### Estados del sistema
 
-Solo la primera vez, antes de entrar al Planning. Una ventana centrada con:
+Los datos están en la nube, así que cada pantalla debe prever estos estados.
 
-1. Icono redondo coral (school), título "Welcome to ClassFlow" y el texto: "Your data is saved only on this computer. To keep it safe, choose a folder where a backup copy will be saved automatically."
-2. Botón principal "Choose backup file". Debajo, en pequeño: "Already have a backup? Import it".
-3. Tras elegir el archivo, un paso breve con una ilustración del aviso de permiso de Chrome y el texto: "Chrome will ask for permission. Choose "Allow on every visit" so backups run on their own." Botón "Got it".
-4. Después se abre el Planning en la semana actual.
-
-### Indicador de copia en la barra superior
-
-Una píldora a la derecha de la barra, antes de "Settings":
-
-| Estado | Aspecto | Texto | Al pulsar |
-| --- | --- | --- | --- |
-| Copia al día | Verde (#EAF3DE / #27500A), icono cloud-check | "Backed up · 10:42" | Abre Settings → Backup |
-| Permiso caducado al reabrir | Ámbar (#FAEEDA / #633806), icono play | "Resume backups" | Pide el permiso a Chrome y recuerda elegir "Allow on every visit" |
-| Sin copia desde hace días o sin archivo elegido | Rojo suave (#FCEBEB / #791F1F), icono alerta | "No backup · 8 days" / "No backup file" | Abre Settings → Backup |
-
-La copia se hace sola tras los cambios. No hay indicador "Saved" general, porque los datos siempre se guardan en el navegador.
-
-### Aviso de copia pendiente
-
-- Si pasan **3 días sin copia**, aparece una franja ámbar bajo la barra superior, en todas las secciones, con el texto "Your last backup was 8 days ago. Back up now to keep your data safe.", el botón "Back up now" y una X.
-- Si se cierra, vuelve al día siguiente mientras siga sin haber copia.
+| Estado | Cómo se muestra |
+| --- | --- |
+| **Cargando una pantalla** | Bloques grises (#F1EFE8) con la forma del contenido que va a aparecer (celdas, filas, tarjetas), con un pulso suave. Nunca una pantalla en blanco ni un indicador de carga a pantalla completa. La barra superior y el encabezado se ven desde el primer momento |
+| **Botón en curso** | El botón muestra un indicador de carga pequeño junto al texto y no se puede volver a pulsar hasta que termina |
+| **Guardando un cambio** | "Saving…" en gris bajo el campo y, al terminar, "✓ Saved" en verde |
+| **Fallo al guardar** | "Couldn't save · Retry" en rojo (#A32D2D) bajo el campo, con "Retry" como enlace. El campo conserva lo que la profesora escribió |
+| **Fallo al cargar** | En la zona de contenido: icono alert-triangle, "Something went wrong loading this page." y el botón "Try again" |
+| **Sin conexión** | Franja ámbar bajo la barra superior, en todas las secciones: icono wifi-off y "You're offline. Changes can't be saved until the connection is back." No se puede cerrar; desaparece sola al volver la conexión. Mientras tanto, los campos y botones de edición se ven atenuados y no responden; se puede seguir consultando lo ya cargado |
 
 ## Pantallas y estados a entregar
 
@@ -409,53 +418,25 @@ Usar datos realistas: el horario de la especificación, unos 25 alumnos con nomb
 
 **Alumnos**
 
-- [ ] Listado (Current) con el filtro de bus desactivado y activado
+- [ ] Listado (Current) con el filtro de bus desactivado y activado, con las columnas Name, Birthday, Bus y Observations
 - [ ] "New student" con el aviso de nombre duplicado
 - [ ] Ficha con menú "⋯" y las dos confirmaciones
 - [ ] Ficha de un alumno dado de baja
 
 **General**
 
-- [ ] Bienvenida del primer arranque (los dos pasos)
-- [ ] Settings → Subjects y Settings → Backup
-- [ ] Los tres estados del indicador de copia y la franja de aviso
+- [ ] Pantallas de acceso: Sign in, Create your account y Check your email, con el aviso de correo no autorizado
+- [ ] Settings → Subjects, Account y Your data
+- [ ] Barra superior con el círculo de la cuenta
+- [ ] Vista semanal en estado de carga
+- [ ] Fallo al guardar en un campo, fallo al cargar una pantalla y franja de sin conexión
 - [ ] Estados vacíos de listas y alumnos
 
-## Diferencias con la especificación v1.0
+## Historial y mejoras futuras
 
-Decisiones de este brief que cambiaban la especificación v1.0. Todas están ya incorporadas en la especificación v1.1; se conservan aquí como registro.
+Este brief se mantiene alineado con la especificación vigente. Para no duplicar información:
 
-| Apartado | Especificación v1.0 | Decisión del brief |
-| --- | --- | --- |
-| Decisiones técnicas – Copias | Copia a un archivo, posiblemente en una carpeta sincronizada con Google Drive | Archivo local en la carpeta que elija la profesora, sin Drive. Se recomienda el permiso "Allow on every visit" de Chrome. Indicador de copia en la barra superior y aviso a los 3 días sin copia |
-| Planning – Asignaturas | La profesora elige el color | Paleta cerrada de 16 pasteles, con colores iniciales fijados en este brief; se pueden repetir entre asignaturas. Nombre no editable en la v1 |
-| Planning – Asignaturas | Recursos fijos gestionados desde la asignatura | Desde Settings → Subjects y desde "⋯" → "Edit … subject" en la sesión |
-| Planning – Festivos | Días sueltos o rangos | Añade un nombre opcional; quitar un festivo pide confirmación |
-| Planning – Cambios puntuales | Anular con nota; añadir sesión o evento puntual | Los eventos llevan recursos y notas y tienen estilo propio. Al anular se puede crear una actividad en su lugar con horario editable; las sesiones que pisa se anulan con confirmación. Se puede restaurar una sesión anulada y borrar un evento restaurando las sesiones que sustituía. Un evento se puede renombrar y cambiar de hora |
-| Planning – Vista mensual | Puntos de colores por asignatura y festivos | Sin puntos: solo número, hoy marcado, festivos y eventos puntuales |
-| Planning – Detalle de sesión | Formato por decidir | Ventana centrada |
-| Listas – Categoría | No existe | Cada lista tiene una categoría que elige la profesora al crearla, entre 16 fijas (por defecto, Others). Filtro por categoría y por mes |
-| Listas – Estados y plantillas | Plantillas Sí/No y Sí/No/Pendiente; estados propios guardables como plantilla | Se llaman "Options". Sin plantillas: toda lista empieza con Yes/No editables y se añaden opciones al crearla; mínimo 2. Paleta cerrada de 8 colores |
-| Listas – Alumnos quitados | Volver a añadirlo | "Add back" recupera la opción y la nota anteriores |
-| Listas – Archivadas | Se pueden consultar | Solo lectura, con opción de desarchivar |
-| Alumnos – Campos | Nombre, fecha, alergias, bus, contacto de emergencia (nombre, teléfono, relación), observaciones | Solo nombre, fecha de nacimiento, bus y observaciones |
-| Alumnos – Filtros | "Con alergias" y "va en bus" | Solo "Takes the bus", más buscador por nombre y selector Current / Left |
-| Alumnos – Bajas | Dar de baja | Se puede deshacer con "Mark as current again" |
-| General | — | Nueva ventana Settings con Subjects y Backup, y bienvenida en el primer arranque |
-| Fuera de alcance | "Cambiar el horario base a mitad de curso": descartado | Pasa a futuro (ver la sección siguiente) |
+- Los cambios entre versiones, con sus motivos, están en el [historial de la especificación](../spec/CHANGELOG.md).
+- Las funciones que quedan fuera de la v1 y las mejoras futuras están al final de la [especificación v1.2](../spec/especificacion-v1.2.md#fuera-de-alcance-y-mejoras-futuras).
 
-**Nota para desarrollo:** los recursos fijos de cada asignatura se pueden precargar con los datos iniciales, igual que el horario y los colores, si la profesora los facilita antes de la entrega.
-
-## Mejoras futuras anotadas
-
-No se diseñan en la v1, pero conviene no cerrarles la puerta.
-
-| Mejora | Versión | Comentario |
-| --- | --- | --- |
-| Personalizar el horario: crear, eliminar y modificar asignaturas (nombre, días y horas) | Futura | Sustituye al "Descartado" de la especificación. Cuando llegue, Subjects podría pasar a ser un apartado propio |
-| Copia en la nube con inicio de sesión (Supabase o Firebase) | Futura (segura) | Copia automática asociada a una cuenta. Debatir entonces si cifrar la copia con una contraseña de la profesora. Revisar la privacidad (RGPD, datos de menores) y usar una región europea |
-| Sincronización completa en la nube (datos principales en la nube) | Evaluar (quizá v3) | Permitiría usar la app en el móvil; mucha más complejidad. Valorar si compensa |
-| Alergias y contacto de emergencia en la ficha, y filtro "Has allergies" | Futura | Datos sensibles excluidos de la v1 |
-| Guardar combinaciones de opciones para reutilizarlas en listas nuevas | Futura | Casilla "Save these options for future lists" al crear y enlace "Use saved options" |
-| Anular o sustituir varias sesiones a la vez (por ejemplo, una semana cultural) | Posible | En la v1 se hace sesión a sesión |
-| Uso desde el móvil, otros idiomas, enlazar listas con días del planning | Futura | Ya previstas en la especificación |
+**Nota para desarrollo:** los recursos fijos de cada asignatura se pueden precargar con los datos iniciales de la cuenta, igual que el horario y los colores, si la profesora los facilita antes de la entrega.
