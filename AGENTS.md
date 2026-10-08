@@ -18,6 +18,7 @@ The project is in the **specification and design phase**. The tech stack is deci
 | `docs/engineering-guidelines.md` | How code is written and organised: folders, layers, TypeScript, React, styling, tests and the definition of done. Follow it in every coding task |
 | `docs/decisions/` | Technical decisions and their reasons. Start with `0001-tech-stack.md` |
 | `docs/plan.md` | Current phase and what comes next |
+| `docs/tasks/` | Task files. Each coding task you are given is described in one of them |
 
 If the specification and the brief disagree, the brief wins on visual and interaction details and the specification wins on behaviour. If something is not covered by either, ask instead of inventing it.
 
@@ -94,6 +95,15 @@ This repository is public, and the app stores data about children.
 - **Do not add AI attribution to commits:** no `Co-Authored-By` lines and no session links.
 - **The author commits and pushes.** Do not run `git commit` or `git push`. When a change is ready, say which files changed and propose a commit message.
 - Do not rewrite history that has already been pushed.
+
+## Working on a task
+
+- A task is described in a file in `docs/tasks/`. Read it completely, and every document it links to, before starting.
+- If asked for a plan, propose it and wait for approval before writing code.
+- Do exactly what the scope says. Anything listed under "Out of scope" stays out, even if it looks useful.
+- If the task, the specification or the brief leave something undecided, stop and ask. Do not decide on your own.
+- Update the task status: In progress when you start, In review when you finish.
+- Finish with the steps in the task's "Delivery" section.
 
 ## Commands
 

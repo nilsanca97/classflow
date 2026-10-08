@@ -52,6 +52,7 @@ The documents are written in Spanish.
 | [Design brief](docs/design/brief-v1.md) | Visual style, colour palettes, navigation and every screen in detail |
 | [Tech stack decision](docs/decisions/0001-tech-stack.md) | The chosen stack, with pros, cons and discarded alternatives |
 | [Engineering guidelines](docs/engineering-guidelines.md) | Code structure, layers, conventions, testing and the definition of done |
+| [Tasks](docs/tasks/README.md) | How work is handed to AI agents, the task template and the tasks themselves |
 | [Project context](docs/project-context.md) | Who the app is for, goals, constraints and glossary |
 | [Plan](docs/plan.md) | Phases and tasks, from documentation to delivery |
 
@@ -68,7 +69,8 @@ classflow/
     ├── engineering-guidelines.md
     ├── spec/              Functional specification, one file per version, and its changelog
     ├── design/            Design brief
-    └── decisions/         Technical decisions, one file each
+    ├── decisions/         Technical decisions, one file each
+    └── tasks/             Task files for AI agents, and their template
 ```
 
 ## Roadmap

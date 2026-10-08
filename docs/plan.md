@@ -16,7 +16,7 @@ Rama `docs`.
 - [x] Decisión de stack
 - [x] Especificación v1.2 y brief actualizados (datos en la nube e inicio de sesión)
 - [x] [Normas de código y de arquitectura](engineering-guidelines.md)
-- [ ] Plantilla de tareas para agentes
+- [x] [Plantilla de tareas para agentes](tasks/README.md)
 - [ ] Fusionar `docs` en `main`
 
 ## Fase 1 – Diseño
