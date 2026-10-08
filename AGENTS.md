@@ -15,6 +15,7 @@ The project is in the **specification and design phase**. The tech stack is deci
 | `docs/project-context.md` | Who the user is, goals, constraints and glossary |
 | `docs/spec/especificacion-v1.2.md` | What the app does. This is the source of truth for behaviour. Always use the highest version in `docs/spec/` |
 | `docs/design/brief-v1.md` | How it looks and behaves on screen: colours, typography, every screen and the exact UI copy |
+| `docs/engineering-guidelines.md` | How code is written and organised: folders, layers, TypeScript, React, styling, tests and the definition of done. Follow it in every coding task |
 | `docs/decisions/` | Technical decisions and their reasons. Start with `0001-tech-stack.md` |
 | `docs/plan.md` | Current phase and what comes next |
 

@@ -15,7 +15,7 @@ Rama `docs`.
 - [x] Contexto del proyecto, plan y `AGENTS.md`
 - [x] Decisión de stack
 - [x] Especificación v1.2 y brief actualizados (datos en la nube e inicio de sesión)
-- [ ] Normas de código y de arquitectura
+- [x] [Normas de código y de arquitectura](engineering-guidelines.md)
 - [ ] Plantilla de tareas para agentes
 - [ ] Fusionar `docs` en `main`
 

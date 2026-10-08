@@ -51,6 +51,7 @@ The documents are written in Spanish.
 | [Specification changelog](docs/spec/CHANGELOG.md) | What changed between versions, and why. Earlier versions are kept unchanged in the same folder |
 | [Design brief](docs/design/brief-v1.md) | Visual style, colour palettes, navigation and every screen in detail |
 | [Tech stack decision](docs/decisions/0001-tech-stack.md) | The chosen stack, with pros, cons and discarded alternatives |
+| [Engineering guidelines](docs/engineering-guidelines.md) | Code structure, layers, conventions, testing and the definition of done |
 | [Project context](docs/project-context.md) | Who the app is for, goals, constraints and glossary |
 | [Plan](docs/plan.md) | Phases and tasks, from documentation to delivery |
 
@@ -64,6 +65,7 @@ classflow/
 └── docs/
     ├── project-context.md
     ├── plan.md
+    ├── engineering-guidelines.md
     ├── spec/              Functional specification, one file per version, and its changelog
     ├── design/            Design brief
     └── decisions/         Technical decisions, one file each
@@ -74,7 +76,7 @@ classflow/
 - [x] Functional specification
 - [x] Design brief
 - [x] Tech stack decision
-- [ ] Engineering guidelines
+- [x] Engineering guidelines
 - [ ] Design system and screen designs
 - [ ] Implementation
 - [ ] Delivery to the teacher
