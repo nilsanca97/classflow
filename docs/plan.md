@@ -46,7 +46,8 @@ Cada decisión se documenta en `docs/decisions/`, con las opciones valoradas y e
 
 Una rama por tarea (`feat/...`), fusionada en `main` cuando funciona. El orden busca tener cuanto antes algo que la profesora pueda probar.
 
-- [ ] **Base:** proyecto, lint, pruebas e integración continua; estilos del sistema de diseño, barra superior y navegación
+- [ ] **Base técnica** ([tarea 0001](tasks/0001-project-setup.md)): proyecto, lint, formato, pruebas e integración continua
+- [ ] **Base visual:** tokens del sistema de diseño, fuentes, barra superior y navegación
 - [ ] **Base de datos:** proyecto de Supabase, esquema como migraciones, reglas de acceso por usuaria y tipos generados
 - [ ] **Acceso:** registro con correos autorizados, inicio de sesión por enlace y cierre de sesión
 - [ ] **Datos iniciales:** carga del horario base y las asignaturas en la cuenta

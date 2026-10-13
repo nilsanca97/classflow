@@ -46,7 +46,7 @@ supabase/
 └── seed.sql              Datos de prueba, siempre inventados
 ```
 
-Reglas de dependencia **[auto]**:
+Reglas de dependencia **[auto]**, comprobadas con `eslint-plugin-boundaries`:
 
 - Una funcionalidad **no importa el interior de otra**. Si necesita algo, lo importa desde su `index.ts`.
 - `shared/` **no importa nunca** de `features/` ni de `app/`.
@@ -71,6 +71,7 @@ Cada dato recorre el mismo camino:
 ## TypeScript
 
 - Modo estricto, con `noUncheckedIndexedAccess` activado. **[auto]**
+- **Imports con el alias `@/`** (que apunta a `src/`) cuando se sale de la carpeta actual: `@/shared/ui/Button` en lugar de `../../../shared/ui/Button`. Dentro de una misma funcionalidad, rutas relativas.
 - **Prohibido `any`.** Si un tipo es desconocido, se usa `unknown` y se comprueba. **[auto]**
 - Sin aserciones `!` (non-null) ni `as` para callar errores, salvo con un comentario que explique por qué es seguro. **[auto]**
 - **`type` en lugar de `interface`**, por coherencia.
@@ -167,7 +168,7 @@ El proyecto tendrá estos comandos (los nombres exactos se fijarán al crearlo y
 | --- | --- |
 | `typecheck` | Tipos de TypeScript |
 | `lint` | Reglas de ESLint, incluidas las de dependencias entre carpetas y accesibilidad |
-| `format:check` | Formato de Prettier (configuración por defecto) |
+| `format:check` | Formato de Prettier (configuración por defecto, con el orden de clases de Tailwind). Solo el código y la configuración; la documentación no se formatea |
 | `test` | Pruebas de Vitest |
 | `build` | Que la app compila |
 
@@ -177,6 +178,7 @@ El proyecto tendrá estos comandos (los nombres exactos se fijarán al crearlo y
 ## Dependencias
 
 - Solo se usan las dependencias de la decisión de stack, más estas utilidades pequeñas: `clsx` y `tailwind-merge`.
+- Las herramientas de desarrollo (lint, formato, pruebas) son las que fija la tarea 0001, entre ellas `eslint-plugin-boundaries`, `eslint-plugin-jsx-a11y` y `prettier-plugin-tailwindcss`.
 - **Añadir, sustituir o actualizar a una versión mayor** cualquier dependencia requiere preguntar antes.
 - Antes de añadir una librería, se comprueba si el problema se resuelve con lo que ya hay.
 
