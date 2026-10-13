@@ -1,12 +1,12 @@
 # Brief de diseño – ClassFlow (v1)
 
-Sep 30, 2026 · @Nil · actualizado el 7 de octubre de 2026 (datos en la nube, registro e inicio de sesión, según la especificación v1.2)
+Sep 30, 2026 · @Nil · actualizado el 13 de octubre de 2026 (listas de comprobación, según la especificación v1.3)
 
 ## Cómo usar este brief
 
-Este brief define el diseño visual y de interacción de la v1 y se entrega junto a la **[Especificación v1.2](../spec/especificacion-v1.2.md)** (07/10/2026). Con los dos documentos se debe poder diseñar todas las pantallas sin más preguntas.
+Este brief define el diseño visual y de interacción de la v1 y se entrega junto a la **[Especificación v1.3](../spec/especificacion-v1.3.md)** (13/10/2026). Con los dos documentos se debe poder diseñar todas las pantallas sin más preguntas.
 
-- **El brief y la especificación v1.2 deben coincidir.** Si aun así hubiera una discrepancia en algo visual o de interacción, prevalece el brief; en el comportamiento, la especificación.
+- **El brief y la especificación v1.3 deben coincidir.** Si aun así hubiera una discrepancia en algo visual o de interacción, prevalece el brief; en el comportamiento, la especificación.
 - **La interfaz está en inglés.** Los textos entre comillas en inglés ("Add event", "Paste a link…") son textos literales de la interfaz.
 - **Dispositivo:** portátil con Chrome. Diseñar para 1366 × 768 como mínimo y que escale bien hasta 1920 × 1080. El móvil queda fuera de la v1.
 - **Fecha de ejemplo para los diseños:** martes 29 de septiembre de 2026 como "hoy", semana del 28 de septiembre al 2 de octubre.
@@ -57,7 +57,7 @@ Sensación **cálida y amable**: fondo crema, tonos pastel suaves, esquinas redo
 ### Iconos y formas
 
 - **Tabler Icons** (versión de contorno), a 16–18 px. Iconos clave: pin (recurso fijo), brand-google-drive, brand-youtube, link (enlace genérico), notes (tiene notas), star (evento), beach (día sin clase), dots (menú ⋯), pencil, trash, calendar-off (anular), settings, mail (enlace enviado), download (exportar), logout (cerrar sesión), wifi-off (sin conexión), alert-triangle (aviso).
-- Radios: 8 px en celdas y campos, 10–12 px en tarjetas y ventanas, 999 px en botones de opción, etiquetas y selectores.
+- Radios: 8 px en celdas y campos, 10–12 px en tarjetas y ventanas, 999 px en etiquetas, selectores y botones de filtro.
 - Sombras muy suaves solo en ventanas y menús desplegables.
 - Área mínima pulsable de 32 × 32 px. Estados de hover visibles en todo lo pulsable y foco visible con teclado.
 
@@ -99,20 +99,15 @@ Las categorías que coinciden con una asignatura usan su color de cabecera (si l
 
 Lista completa, en este orden: English, Maths, Computing, Phonics, PSHE, Music, Topic, Reading Groups, Swimming, Oracy, PE, Fine Motor Skills, Social Skills, Assembly, Golden Time, Others. Registration y Snack and Storytime **no** son categorías.
 
-### Opciones de las listas (8 colores)
+### Casillas de las listas
 
-Paleta cerrada de colores más intensos, distinta de los pasteles, para que las opciones se lean al instante. Al añadir opciones se asignan en este orden; la profesora puede cambiarlos.
+Las casillas de las listas usan el verde de "correcto", el único color que transmite que algo está hecho:
 
-| # | Color | Punto / barra | Botón seleccionado (fondo · borde · texto) |
-| --- | --- | --- | --- |
-| 1 | Verde | #97C459 | #EAF3DE · #97C459 · #27500A |
-| 2 | Rojo | #E24B4A | #FCEBEB · #E24B4A · #791F1F |
-| 3 | Ámbar | #EF9F27 | #FAEEDA · #EF9F27 · #633806 |
-| 4 | Azul | #378ADD | #E6F1FB · #378ADD · #0C447C |
-| 5 | Violeta | #7F77DD | #EEEDFE · #7F77DD · #3C3489 |
-| 6 | Rosa | #D4537E | #FBEAF0 · #D4537E · #72243E |
-| 7 | Turquesa | #1D9E75 | #E1F5EE · #1D9E75 · #085041 |
-| 8 | Gris | #B4B2A9 | #F1EFE8 · #B4B2A9 · #444441 |
+| Estado | Aspecto |
+| --- | --- |
+| Sin marcar | Fondo blanco, borde 1,5 px #B4B2A9 |
+| Marcada | Relleno #97C459, sin borde, con el icono check en blanco |
+| Barra de progreso | Parte completada #97C459 sobre fondo #F1EFE8 |
 
 ## Estructura, navegación y patrones comunes
 
@@ -127,7 +122,7 @@ Paleta cerrada de colores más intensos, distinta de los pasteles, para que las 
 
 - **Ventana centrada (modal)** para todo lo que se abre: sesión, evento, alumno, nueva lista, festivos, asignatura, Settings. Fondo atenuado detrás, X arriba a la derecha y tecla Esc para cerrar. Las ventanas de consulta con guardado automático (sesión, alumno) también se cierran pulsando fuera; los formularios de creación, no.
 - **Menú "⋯"** en la cabecera de ventanas y páginas para las acciones secundarias. Las acciones destructivas del menú van en rojo (#A32D2D) y al final.
-- **Guardado automático** en todo lo que se edita (notas, campos de la ficha, opciones, colores): sin botón de guardar. Bajo el campo se ve "Saving…" en gris mientras se guarda y "✓ Saved" en verde al terminar; si falla, "Couldn't save · Retry" en rojo (ver "Estados del sistema"). Solo crear algo nuevo lleva botón ("Add student", "Create list", "Add").
+- **Guardado automático** en todo lo que se edita (notas, campos de la ficha, colores): sin botón de guardar. Bajo el campo se ve "Saving…" en gris mientras se guarda y "✓ Saved" en verde al terminar; si falla, "Couldn't save · Retry" en rojo (ver "Estados del sistema"). Solo crear algo nuevo lleva botón ("Add student", "Create list", "Add").
 - **Confirmaciones:** ventana pequeña centrada con título en forma de pregunta ("Delete Biel permanently?"), una o dos frases que explican qué pasará, un enlace para volver ("Cancel" / "Go back") y un botón que dice exactamente la acción. En rojo suave si es destructiva, con icono de alerta.
 - **Botones:** principal en coral relleno; secundario en blanco con borde #D3D1C7; enlaces de acción en coral oscuro. Un botón se muestra apagado (no oculto) mientras falte un dato obligatorio.
 - **Selectores de dos o tres valores** (Day · Week · Month, Active / Archived, Current / Left, Yes / No): control segmentado en forma de píldora, con el valor activo en blanco sobre fondo #F1EFE8.
@@ -244,7 +239,7 @@ Se abre desde **Settings → Subjects** (con la lista de todas) y desde **"⋯" 
 
 ## Listas
 
-En la interfaz, los estados se llaman **"Options"** en todas partes ("Edit options", "Delete option", "Add option").
+Cada lista es una **lista de comprobación**: una casilla por alumno, marcada o sin marcar.
 
 ### Página de listas
 
@@ -254,33 +249,21 @@ En la interfaz, los estados se llaman **"Options"** en todas partes ("Edit optio
 - **Tarjetas** en cuadrícula de 3 columnas, ordenadas de la más reciente a la más antigua. Cada tarjeta muestra:
   - La etiqueta de categoría (píldora con su color).
   - El nombre de la lista (13–15 px, peso 600) y la fecha de creación ("14 Sep 2026").
-  - Una barra horizontal redondeada con la proporción de cada opción en su color (el hueco gris son los alumnos sin opción).
-  - Los contadores: punto de color + número + nombre ("18 Yes", "2 No", "5 Pending") y, si los hay, "12 not set" en gris.
+  - La barra de progreso, redondeada, con la proporción de alumnos marcados.
+  - Debajo, "18 of 25". Si están todos marcados, en su lugar "✓ All done" en verde (#3B6D11).
 - Pulsar la tarjeta abre la lista.
 
 ### Dentro de una lista
 
 - **Cabecera:** enlace "← Lists"; título de la lista (18–20 px) con su etiqueta de categoría al lado; menú "⋯" a la derecha con "Rename", "Change category" y "Archive list".
-- **Franja de contadores** (fondo crema, radio 10 px): una píldora blanca por opción con punto de color y número ("17 Yes"), después "3 not set" en gris y, a la derecha, el enlace **"✎ Edit options"**. No cuenta a los alumnos quitados ni a los dados de baja.
+- **Franja de progreso** (fondo crema, radio 10 px): la barra de progreso y, a su derecha, "18 of 25 ticked". No cuenta a los alumnos quitados ni a los dados de baja.
 - **Filas de alumnos** en orden alfabético, separadas por líneas finas:
-  - Nombre (unos 110 px de ancho).
-  - **Botones con todas las opciones** de la lista en forma de píldora. El seleccionado se rellena con su color (fondo · borde · texto de la paleta); los demás, blancos con borde gris. Un clic elige; pulsar el ya elegido lo desmarca. Si hay muchas opciones, pasan a una segunda línea.
+  - **Casilla** de 22 px con radio 6 px, seguida del nombre. Casilla y nombre forman **una sola zona pulsable**: un clic marca y otro desmarca. Al pasar el ratón, la fila se ve con fondo crema.
   - A la derecha, menú "⋮" con "Add note" y "Remove from list".
   - **Nota:** texto pequeño gris con icono bajo el nombre ("Mum will send it on Friday"). Pulsarla la edita en el sitio, con guardado automático.
-- **Alumno dado de baja:** se queda en su sitio, atenuado al 60 %, con la etiqueta gris "Left" junto al nombre, sin menú y sin poder cambiarse.
-- **Alumnos quitados:** al final, una sección plegable "Removed from this list (2)" con cada nombre en gris y el botón "↩ Add back". "Add back" lo devuelve con la opción y la nota que tenía. Si no hay quitados, la sección no aparece.
-- **Lista archivada:** solo lectura, con un aviso gris arriba ("This list is archived."); el menú "⋯" muestra "Unarchive".
-
-### Modo "Edit options"
-
-1. Al pulsar "Edit options", la franja de contadores se convierte en un recuadro con **borde coral de 1,5 px** que contiene:
-   - Título "Options" y ayuda "What can each student have? Changes only affect this list."
-   - Una fila por opción: círculo de color (al pulsarlo se despliega la paleta de 8 colores), campo de texto con el nombre, "17 students" en gris y papelera.
-   - "+ Add option" (añade una fila con el siguiente color de la paleta) y el botón "Done".
-2. Siempre debe haber al menos 2 opciones; con dos, las papeleras se muestran desactivadas.
-3. Mientras se edita, las filas de alumnos se ven atenuadas y no se pueden tocar, pero reflejan los cambios en directo (por ejemplo, "Pending" → "Pending reply").
-4. Todo se guarda al momento; "Done" solo cierra el modo edición.
-5. **Borrar una opción en uso** abre la confirmación "Delete "Pending"?" con el texto "3 students have this option. What should they have instead?", píldoras con las demás opciones + "Leave empty" (marcada por defecto) y los botones "Cancel" / "Delete option" (rojo). Si nadie la usa, se borra sin preguntar.
+- **Alumno dado de baja:** se queda en su sitio, atenuado al 60 %, con la etiqueta gris "Left" junto al nombre, sin menú y sin poder marcarse.
+- **Alumnos quitados:** al final, una sección plegable "Removed from this list (2)" con cada nombre en gris y el botón "↩ Add back". "Add back" lo devuelve con su casilla y su nota. Si no hay quitados, la sección no aparece.
+- **Lista archivada:** solo lectura, con un aviso gris arriba ("This list is archived."); las casillas no se pueden cambiar y el menú "⋯" muestra "Unarchive".
 
 ### Crear una lista ("New list")
 
@@ -288,12 +271,8 @@ Una sola ventana con, de arriba abajo:
 
 1. "Name" (obligatorio).
 2. "Category": desplegable con punto de color; por defecto, "Others".
-3. "Options", con la ayuda "What can each student have?": dos filas ya rellenas, **"Yes" (verde) y "No" (rojo)**, editables, cada una con círculo de color y papelera (desactivada mientras haya solo 2), y "+ Add option".
-4. "Start everyone as (optional)": píldoras con "Empty" (marcada por defecto) y las opciones escritas arriba, que se actualizan en directo.
-5. La línea "All 25 active students will be added." con icono de alumnos.
-6. Botones "Cancel" y "Create list" (apagado hasta que haya nombre). Al crear, se abre la lista nueva.
-
-No hay plantillas ni atajos de opciones guardadas.
+3. La línea "All 25 active students will be added." con icono de alumnos.
+4. Botones "Cancel" y "Create list" (apagado hasta que haya nombre). Al crear, se abre la lista nueva, con todos los alumnos sin marcar.
 
 ## Alumnos
 
@@ -413,7 +392,7 @@ Usar datos realistas: el horario de la especificación, unos 25 alumnos con nomb
 
 - [ ] Página de listas con filtros y tarjetas (activas) y vista de archivadas
 - [ ] Lista abierta con notas, un alumno "Left" y la sección "Removed from this list"
-- [ ] Modo "Edit options" y confirmación de borrar una opción en uso
+- [ ] Lista con todos los alumnos marcados (tarjeta con "✓ All done")
 - [ ] Ventana "New list"
 
 **Alumnos**
@@ -437,6 +416,6 @@ Usar datos realistas: el horario de la especificación, unos 25 alumnos con nomb
 Este brief se mantiene alineado con la especificación vigente. Para no duplicar información:
 
 - Los cambios entre versiones, con sus motivos, están en el [historial de la especificación](../spec/CHANGELOG.md).
-- Las funciones que quedan fuera de la v1 y las mejoras futuras están al final de la [especificación v1.2](../spec/especificacion-v1.2.md#fuera-de-alcance-y-mejoras-futuras).
+- Las funciones que quedan fuera de la v1 y las mejoras futuras están al final de la [especificación v1.3](../spec/especificacion-v1.3.md#fuera-de-alcance-y-mejoras-futuras).
 
 **Nota para desarrollo:** los recursos fijos de cada asignatura se pueden precargar con los datos iniciales de la cuenta, igual que el horario y los colores, si la profesora los facilita antes de la entrega.
