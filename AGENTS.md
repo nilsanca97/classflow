@@ -6,7 +6,7 @@ Instructions for AI coding agents working in this repository.
 
 ClassFlow is a web app for a primary school teacher to organise her class: a planner with resources and notes for each lesson, student checklists, and basic student profiles.
 
-The project is in the **specification and design phase**. The tech stack is decided, but **there is no application code yet**. Do not scaffold the project or install dependencies unless a task asks for it.
+The project has its **technical base** in place (build, lint, formatting, tests and continuous integration), but **no feature is implemented yet**. Design continues in parallel. Do not install dependencies unless a task asks for it.
 
 ## Read first
 
@@ -109,4 +109,20 @@ This repository is public, and the app stores data about children.
 
 ## Commands
 
-None yet: the project has not been scaffolded. Once it is, list here how to install, run, test, lint, type-check and build, and how to run the database migrations.
+Node.js 24 (see `.nvmrc`) and npm.
+
+| Command | What it does |
+| --- | --- |
+| `npm ci` | Installs the exact dependencies from `package-lock.json` |
+| `npm run dev` | Starts the development server |
+| `npm run build` | Type-checks and builds the app into `dist/` |
+| `npm run preview` | Serves the built app locally |
+| `npm run typecheck` | Checks the TypeScript types |
+| `npm run lint` | Runs ESLint, including the folder dependency and accessibility rules |
+| `npm run format` | Formats code and configuration with Prettier |
+| `npm run format:check` | Checks the formatting without changing files |
+| `npm run test` | Runs the Vitest tests once |
+
+Before handing over a task, `typecheck`, `lint`, `format:check`, `test` and `build` must pass. Prettier never touches `docs/` or the Markdown files in the root.
+
+There are no database migrations yet; their commands will be listed here when Supabase is set up.
