@@ -47,7 +47,7 @@ Cada decisión se documenta en `docs/decisions/`, con las opciones valoradas y e
 Una rama por tarea (`feat/...`), fusionada en `main` cuando funciona. El orden busca tener cuanto antes algo que la profesora pueda probar.
 
 - [x] **Base técnica** ([tarea 0001](tasks/0001-project-setup.md)): proyecto, lint, formato, pruebas e integración continua
-- [ ] **Base visual:** tokens del sistema de diseño, fuentes, barra superior y navegación
+- [ ] **Base visual:** tokens del sistema de diseño, fuentes, favicon, barra superior y navegación
 - [ ] **Base de datos:** proyecto de Supabase, esquema como migraciones, reglas de acceso por usuaria y tipos generados
 - [ ] **Acceso:** registro con correos autorizados, inicio de sesión por enlace y cierre de sesión
 - [ ] **Datos iniciales:** carga del horario base y las asignaturas en la cuenta
@@ -72,6 +72,15 @@ Una rama por tarea (`feat/...`), fusionada en `main` cuando funciona. El orden b
 - [ ] Sesión de prueba con la profesora y lista de ajustes
 - [ ] Corregir lo que salga de la prueba
 - [ ] Añadir capturas al README
+
+## Deuda técnica
+
+Decisiones provisionales o mejoras pendientes que no bloquean el trabajo, pero que hay que revisar.
+
+- [ ] **ESLint 10:** el proyecto usa ESLint 9 porque `eslint-plugin-jsx-a11y` todavía no admite la 10. Subir cuando lo admita.
+- [ ] **TypeScript 7:** el proyecto usa TypeScript 6.0 porque `typescript-eslint` todavía no admite la 7. Subir cuando lo admita.
+- [ ] **`npm audit`:** 5 vulnerabilidades en dependencias internas de `eslint-plugin-boundaries`, solo de desarrollo (no llegan a la app). Revisar cuando salga una versión nueva del plugin.
+- [ ] **Prueba de `App`:** busca por texto (`getByText`); las normas piden buscar por rol (`getByRole`). Corregir en la próxima tarea que toque `App`.
 
 ## Más adelante
 
