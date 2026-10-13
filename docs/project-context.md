@@ -1,6 +1,6 @@
 # Contexto del proyecto
 
-Resumen de quién, para qué y con qué límites se construye ClassFlow. Es el punto de partida para cualquier persona (o agente) que llegue nueva al proyecto. El detalle está en la [especificación](spec/especificacion-v1.2.md), en el [brief de diseño](design/brief-v1.md) y en la [decisión de stack](decisions/0001-tech-stack.md).
+Resumen de quién, para qué y con qué límites se construye ClassFlow. Es el punto de partida para cualquier persona (o agente) que llegue nueva al proyecto. El detalle está en la [especificación](spec/especificacion-v1.3.md), en el [brief de diseño](design/brief-v1.md) y en la [decisión de stack](decisions/0001-tech-stack.md).
 
 ## Qué es
 
@@ -66,8 +66,8 @@ ClassFlow es una aplicación web para que **una profesora de primaria** organice
 | Recurso del día | For this day | Enlace de una sola sesión |
 | Evento puntual | Event | Actividad con fecha y hora propias, fuera del horario base |
 | Día sin clase | Day off | Festivo o vacaciones; oculta las clases de ese día |
-| Lista | List | Lista de alumnos con una opción por alumno |
-| Opción | Option | Cada valor posible en una lista (Yes, No, Pending…) |
+| Lista | List | Lista de comprobación: una casilla por alumno, marcada o sin marcar |
+| Marcar | Tick | Marcar la casilla de un alumno en una lista |
 | Categoría | Category | Clasificación de una lista; hay 16 fijas |
 | Baja | Left | Alumno que ha dejado la clase; se conserva en las listas antiguas |
 | Cuenta | Account | Identidad de la profesora en la app: su nombre y su correo |

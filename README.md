@@ -1,6 +1,6 @@
 # ClassFlow
 
-A web app that helps a primary school teacher organise her class: a weekly planner with resources and notes for each lesson, student lists with custom options, and basic student profiles.
+A web app that helps a primary school teacher organise her class: a weekly planner with resources and notes for each lesson, student checklists, and basic student profiles.
 
 > **Status:** specification and design phase. The tech stack is decided, but there is no application code yet.
 
@@ -15,7 +15,7 @@ It is also a learning project. The repository keeps the full trail, from the fir
 | Section | What it is for |
 | --- | --- |
 | **Planning** | The class timetable as a calendar, in day, week and month views. Each lesson holds its own links (Google Drive, YouTube or any URL) and notes. Subjects can have fixed links that show in every lesson. Supports days off, cancelled lessons and one-off events. |
-| **Lists** | Checklists of students for permissions, payments, homework and similar. Each list has its own options (for example Yes / No / Pending), a category and a live count per option. |
+| **Lists** | Checklists of students for permissions, payments, homework and similar: one tick per student, a category and a live progress count. |
 | **Students** | A basic profile for each of the roughly 25 students, with search and a simple filter. |
 | **Settings** | Subject colours and fixed links, the account, and data export. |
 
@@ -47,10 +47,11 @@ The documents are written in Spanish.
 
 | Document | Description |
 | --- | --- |
-| [Specification v1.2](docs/spec/especificacion-v1.2.md) | Current functional specification |
+| [Specification v1.3](docs/spec/especificacion-v1.3.md) | Current functional specification |
 | [Specification changelog](docs/spec/CHANGELOG.md) | What changed between versions, and why. Earlier versions are kept unchanged in the same folder |
 | [Design brief](docs/design/brief-v1.md) | Visual style, colour palettes, navigation and every screen in detail |
 | [Tech stack decision](docs/decisions/0001-tech-stack.md) | The chosen stack, with pros, cons and discarded alternatives |
+| [Data model](docs/decisions/0002-data-model.md) | Tables, relationships, access rules and database functions |
 | [Engineering guidelines](docs/engineering-guidelines.md) | Code structure, layers, conventions, testing and the definition of done |
 | [Tasks](docs/tasks/README.md) | How work is handed to AI agents, the task template and the tasks themselves |
 | [Project context](docs/project-context.md) | Who the app is for, goals, constraints and glossary |
@@ -78,12 +79,13 @@ classflow/
 - [x] Functional specification
 - [x] Design brief
 - [x] Tech stack decision
+- [x] Data model
 - [x] Engineering guidelines
 - [ ] Design system and screen designs
 - [ ] Implementation
 - [ ] Delivery to the teacher
 
-The detailed plan is in [docs/plan.md](docs/plan.md). Ideas left for later versions are listed at the end of the [specification](docs/spec/especificacion-v1.2.md#fuera-de-alcance-y-mejoras-futuras).
+The detailed plan is in [docs/plan.md](docs/plan.md). Ideas left for later versions are listed at the end of the [specification](docs/spec/especificacion-v1.3.md#fuera-de-alcance-y-mejoras-futuras).
 
 ## Privacy
 

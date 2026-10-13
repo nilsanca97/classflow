@@ -4,7 +4,7 @@ Instructions for AI coding agents working in this repository.
 
 ## Project
 
-ClassFlow is a web app for a primary school teacher to organise her class: a planner with resources and notes for each lesson, student lists with custom options, and basic student profiles.
+ClassFlow is a web app for a primary school teacher to organise her class: a planner with resources and notes for each lesson, student checklists, and basic student profiles.
 
 The project is in the **specification and design phase**. The tech stack is decided, but **there is no application code yet**. Do not scaffold the project or install dependencies unless a task asks for it.
 
@@ -13,10 +13,10 @@ The project is in the **specification and design phase**. The tech stack is deci
 | Document | Use it for |
 | --- | --- |
 | `docs/project-context.md` | Who the user is, goals, constraints and glossary |
-| `docs/spec/especificacion-v1.2.md` | What the app does. This is the source of truth for behaviour. Always use the highest version in `docs/spec/` |
+| `docs/spec/especificacion-v1.3.md` | What the app does. This is the source of truth for behaviour. Always use the highest version in `docs/spec/` |
 | `docs/design/brief-v1.md` | How it looks and behaves on screen: colours, typography, every screen and the exact UI copy |
 | `docs/engineering-guidelines.md` | How code is written and organised: folders, layers, TypeScript, React, styling, tests and the definition of done. Follow it in every coding task |
-| `docs/decisions/` | Technical decisions and their reasons. Start with `0001-tech-stack.md` |
+| `docs/decisions/` | Technical decisions and their reasons: `0001-tech-stack.md` (stack) and `0002-data-model.md` (tables, relationships, access rules and database functions) |
 | `docs/plan.md` | Current phase and what comes next |
 | `docs/tasks/` | Task files. Each coding task you are given is described in one of them |
 
@@ -47,6 +47,8 @@ Not in version 1: no state management library, no component library, no PWA or o
 - **Use the exact UI copy** from the brief. Do not reword labels or messages.
 
 ## Data rules
+
+The data model is defined in `docs/decisions/0002-data-model.md`. Do not add, rename or remove tables or columns without updating that document first.
 
 - **Components never call Supabase directly.** All data access goes through the data layer.
 - **Every table has a `user_id` and Row Level Security.** A user can only read and write her own rows. Never rely on the frontend to filter by user.

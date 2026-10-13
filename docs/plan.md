@@ -15,19 +15,20 @@ Rama `docs`.
 - [x] Contexto del proyecto, plan y `AGENTS.md`
 - [x] Decisión de stack
 - [x] Especificación v1.2 y brief actualizados (datos en la nube e inicio de sesión)
+- [x] Especificación v1.3 y brief actualizados (listas de comprobación)
 - [x] [Normas de código y de arquitectura](engineering-guidelines.md)
 - [x] [Plantilla de tareas para agentes](tasks/README.md)
 - [ ] Fusionar `docs` en `main`
 
 ## Fase 1 – Diseño
 
-A partir de la especificación v1.2 y del brief. Cada tanda se revisa antes de empezar la siguiente; las pantallas se guardan en `docs/design/screens/`.
+A partir de la especificación v1.3 y del brief. Cada tanda se revisa antes de empezar la siguiente; las pantallas se guardan en `docs/design/screens/`.
 
 - [ ] **Sistema de diseño:** colores, tipografía, botones, campos, celdas, ventanas, menús y confirmaciones
 - [ ] **Tanda 1:** barra superior y vista semanal del Planning
 - [ ] Enseñar la tanda 1 a la profesora y recoger su opinión
 - [ ] **Tanda 2:** resto del Planning (vistas diaria y mensual, ventana de sesión, copiar recursos, anular, eventos, días sin clase, asignatura)
-- [ ] **Tanda 3:** Listas (página, lista abierta, edición de opciones, nueva lista)
+- [ ] **Tanda 3:** Listas (página, lista abierta, nueva lista)
 - [ ] **Tanda 4:** Alumnos, Settings, pantallas de acceso, estados de carga, error y sin conexión, y estados vacíos
 - [ ] Revisar que están todas las pantallas de la lista del brief
 
@@ -36,7 +37,7 @@ A partir de la especificación v1.2 y del brief. Cada tanda se revisa antes de e
 Cada decisión se documenta en `docs/decisions/`, con las opciones valoradas y el motivo.
 
 - [x] Elegir el stack: React, TypeScript, Tailwind, Supabase y Vercel ([decisión 0001](decisions/0001-tech-stack.md))
-- [ ] Definir el modelo de datos: tablas, relaciones y reglas de acceso
+- [x] Definir el modelo de datos: tablas, relaciones y reglas de acceso ([decisión 0002](decisions/0002-data-model.md))
 - [ ] Confirmar con el colegio que se pueden guardar en la nube los datos mínimos de los alumnos
 - [ ] Comprobar los límites del plan gratuito de Supabase
 - [ ] Decidir la licencia del repositorio
@@ -55,7 +56,7 @@ Una rama por tarea (`feat/...`), fusionada en `main` cuando funciona. El orden b
 - [ ] **Planning – vistas diaria y mensual**
 - [ ] **Planning – cambios:** días sin clase, anular y restaurar sesiones, eventos puntuales, copiar recursos
 - [ ] **Students:** listado, ficha, alta, baja y eliminación
-- [ ] **Lists:** página de listas, lista abierta, opciones, categorías, archivo
+- [ ] **Lists:** página de listas, lista abierta con casillas, categorías, archivo
 - [ ] **Settings:** asignaturas (color y recursos fijos), cuenta y "Export my data"
 - [ ] **Sin conexión:** aviso y bloqueo de la edición
 - [ ] Estados vacíos, accesibilidad con teclado y repaso general
@@ -73,12 +74,11 @@ Una rama por tarea (`feat/...`), fusionada en `main` cuando funciona. El orden b
 
 ## Más adelante
 
-Ideas ya anotadas para versiones futuras; el detalle está al final de la [especificación](spec/especificacion-v1.2.md#fuera-de-alcance-y-mejoras-futuras).
+Ideas ya anotadas para versiones futuras; el detalle está al final de la [especificación](spec/especificacion-v1.3.md#fuera-de-alcance-y-mejoras-futuras).
 
 - Personalizar el horario: crear, eliminar y modificar asignaturas
 - Registro abierto a cualquier profesora (depende del editor de horario)
 - Iniciar sesión con Google
 - Diseño adaptado al móvil
-- Guardar combinaciones de opciones para las listas
 - Anular o sustituir varias sesiones a la vez
 - Uso sin conexión (por evaluar)

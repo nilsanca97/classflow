@@ -63,7 +63,7 @@ Cada dato recorre el mismo camino:
 | Componente | `components/` | Mostrar datos y recoger acciones | Llamar a Supabase ni contener reglas del negocio |
 | Hook | `hooks/` | Conectar el componente con los datos mediante TanStack Query | Contener SQL ni lógica de presentación |
 | API | `api/` | Llamar a Supabase y convertir filas en tipos del dominio | Importar React |
-| Lógica | `lib/` | Reglas puras: generar sesiones, detectar solapes, contar opciones… | Importar React ni Supabase |
+| Lógica | `lib/` | Reglas puras: generar sesiones, detectar solapes, calcular el progreso de una lista… | Importar React ni Supabase |
 
 - **Conversión de nombres en la capa API:** la base de datos usa `snake_case` y el código `camelCase`. Las filas se convierten a tipos del dominio en `api/`; un componente nunca ve una fila de la base de datos.
 - **Errores en la capa API:** si Supabase devuelve un error, la función lo lanza. No se devuelve `null` para ocultarlo.
@@ -94,7 +94,7 @@ Cada dato recorre el mismo camino:
 - **Claves de consulta** con un formato fijo por funcionalidad, definidas en un único sitio de cada `api/`: por ejemplo `['planning', 'week', '2026-09-28']`.
 - Después de una modificación, se **invalidan** las consultas afectadas para que la pantalla se actualice.
 - **Guardado automático:** se agrupan los cambios de un campo de texto mientras se escribe (unos 800 ms) antes de guardar, y se muestran los estados "Saving…", "✓ Saved" y "Couldn't save · Retry" con el componente compartido `SaveStatus`.
-- **Actualizaciones optimistas** solo donde la espera se notaría (por ejemplo, marcar una opción en una lista), y siempre deshaciendo el cambio si falla.
+- **Actualizaciones optimistas** solo donde la espera se notaría (por ejemplo, marcar la casilla de un alumno en una lista), y siempre deshaciendo el cambio si falla.
 - **Esquema y reglas de acceso solo mediante migraciones** en `supabase/migrations/`. Cada tabla nueva lleva `user_id` y Row Level Security en la misma migración.
 - Después de cambiar el esquema, se **regeneran los tipos** en `src/types/database.ts`.
 - Solo la **clave pública** de Supabase en el frontend, leída de variables de entorno.
@@ -112,7 +112,7 @@ Toda pantalla o bloque que carga datos contempla **cuatro casos**: cargando, err
 ## Estilos con Tailwind
 
 - **Los colores, tipografía, radios y sombras del brief se definen una vez como tokens del tema.** En el código se usan los tokens (`bg-cream`, `text-coral-700`), nunca valores sueltos como `bg-[#FBF8F2]`.
-- **Los colores de las asignaturas y de las opciones no son clases de Tailwind:** se guardan como datos (el color elegido) y se aplican mediante variables CSS en el atributo `style`. Tailwind no detecta clases construidas en tiempo de ejecución (`bg-${color}`), así que nunca se construyen nombres de clase dinámicamente.
+- **Los colores de las asignaturas y de las categorías no son clases de Tailwind:** se guardan como datos (el color elegido) y se aplican mediante variables CSS en el atributo `style`. Tailwind no detecta clases construidas en tiempo de ejecución (`bg-${color}`), así que nunca se construyen nombres de clase dinámicamente.
 - Para combinar clases según condiciones se usa la utilidad `cn` (basada en `clsx` y `tailwind-merge`).
 - Los patrones repetidos se convierten en **componentes de `shared/ui`**, no en clases personalizadas con `@apply`.
 - Diseño para portátil: mínimo 1366 × 768, y que escale bien hasta 1920 × 1080.
@@ -129,7 +129,7 @@ Toda pantalla o bloque que carga datos contempla **cuatro casos**: cargando, err
 - Todo se puede usar con teclado, con el foco visible.
 - Las ventanas modales atrapan el foco, se cierran con Esc y devuelven el foco al elemento que las abrió.
 - Los botones que solo tienen icono llevan `aria-label`.
-- El color nunca es la única forma de transmitir información: las opciones de las listas llevan siempre su texto.
+- El color nunca es la única forma de transmitir información: una casilla marcada se distingue por su icono de check, no solo por el color.
 - Se activan las reglas de accesibilidad de ESLint para JSX. **[auto]**
 
 ## Nombres
@@ -142,16 +142,16 @@ Toda pantalla o bloque que carga datos contempla **cuatro casos**: cargando, err
 | Funciones | verbo + objeto | `getSessionData`, `cancelSession` |
 | Booleanos | `is`, `has`, `can` | `isCancelled`, `hasNotes` |
 | Props de evento / manejadores | `onX` / `handleX` | `onClose` / `handleClose` |
-| Tipos | PascalCase, sin prefijos | `Session`, `ListOption` |
+| Tipos | PascalCase, sin prefijos | `Session`, `ListEntry` |
 | Constantes globales | UPPER_SNAKE_CASE | `SCHOOL_YEAR_START` |
 | Tablas y columnas | snake_case, tablas en plural | `students`, `list_entries`, `user_id` |
 | Pruebas | junto al archivo, `.test.ts(x)` | `generateSessions.test.ts` |
 
-Los nombres van en inglés y describen el dominio con las mismas palabras que la interfaz: `subject`, `session`, `resource`, `dayOff`, `option`, `student`.
+Los nombres van en inglés y describen el dominio con las mismas palabras que la interfaz: `subject`, `session`, `resource`, `dayOff`, `list`, `entry`, `student`.
 
 ## Pruebas
 
-- **Toda la lógica de `lib/` tiene pruebas**, incluidos los casos límite de la especificación: generar las sesiones de una semana, la hora exacta del viernes, solapes al anular, días sin clase, conteo de opciones, alumnos dados de baja.
+- **Toda la lógica de `lib/` tiene pruebas**, incluidos los casos límite de la especificación: generar las sesiones de una semana, la hora exacta del viernes, solapes al anular, días sin clase, progreso de las listas, alumnos dados de baja.
 - **Los componentes con interacción importante** se prueban con Testing Library, desde el punto de vista de la usuaria: se buscan elementos por su rol y su texto, no por clases ni identificadores internos.
 - Se prueba el **comportamiento**, no la implementación.
 - **Sin pruebas de instantánea** (snapshots).
