@@ -2,7 +2,7 @@
 
 | | |
 | --- | --- |
-| **Estado** | Draft |
+| **Estado** | Ready |
 | **Rama** | `chore/0001-project-setup` |
 | **Depende de** | — |
 
