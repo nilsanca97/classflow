@@ -2,6 +2,30 @@
 
 Cada versión de la especificación se conserva como archivo propio y no se modifica después de publicarse. Aquí se resume qué cambió en cada una y por qué.
 
+## v1.3 – 13 de octubre de 2026
+
+[especificacion-v1.3.md](especificacion-v1.3.md)
+
+A petición de la profesora, **las listas pasan a ser listas de comprobación**: una casilla por alumno, marcada o sin marcar. Las opciones personalizadas resultaban más complejas de lo que necesita: casi todas sus listas son de sí o no.
+
+### Listas
+
+- Cada alumno tiene **una casilla** con dos estados. Desaparecen las opciones ("Options"), sus colores, la edición de opciones, el borrado de una opción en uso y la opción inicial ("Start everyone as").
+- Al crear una lista solo se piden el nombre y la categoría; todos los alumnos empiezan sin marcar.
+- El recuento por opción se sustituye por el **progreso**: alumnos marcados sobre el total ("18 of 25").
+- Volver a añadir un alumno quitado recupera su casilla y su nota.
+- La app no muestra cuándo se marcó cada casilla.
+- Se mantienen las categorías, los filtros, la nota por alumno, quitar y volver a añadir, los alumnos "Left" y el archivo.
+
+### Datos iniciales
+
+- Se concreta qué se carga al crear la cuenta: las fechas del curso, el horario, las asignaturas con sus colores y las 16 categorías.
+
+### Fuera de alcance
+
+- Se retira "Guardar combinaciones de opciones", que ya no aplica.
+- Queda descartado tener más de un estado por alumno o varias columnas por lista.
+
 ## v1.2 – 7 de octubre de 2026
 
 [especificacion-v1.2.md](especificacion-v1.2.md)
