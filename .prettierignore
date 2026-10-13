@@ -1,0 +1,5 @@
+# Prettier only formats code and configuration, never the documentation.
+docs/
+/*.md
+dist/
+package-lock.json
