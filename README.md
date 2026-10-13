@@ -2,7 +2,7 @@
 
 A web app that helps a primary school teacher organise her class: a weekly planner with resources and notes for each lesson, student checklists, and basic student profiles.
 
-> **Status:** specification and design phase. The tech stack is decided, but there is no application code yet.
+> **Status:** the technical base of the project is set up, and design continues in parallel. No feature is implemented yet.
 
 ## Why this project
 
@@ -41,6 +41,34 @@ It is also a learning project. The repository keeps the full trail, from the fir
 
 The reasons, the trade-offs and the alternatives that were ruled out are in the [tech stack decision](docs/decisions/0001-tech-stack.md).
 
+## Getting started
+
+You need [Node.js](https://nodejs.org/) 24 (the version is pinned in `.nvmrc`) and npm.
+
+1. Install the dependencies:
+
+   ```bash
+   npm ci
+   ```
+
+2. Start the development server and open the address it prints:
+
+   ```bash
+   npm run dev
+   ```
+
+3. Check the project before opening a pull request:
+
+   ```bash
+   npm run typecheck
+   npm run lint
+   npm run format:check
+   npm run test
+   npm run build
+   ```
+
+`npm run format` fixes the formatting. Continuous integration runs the same five checks on every pull request.
+
 ## Documentation
 
 The documents are written in Spanish.
@@ -64,6 +92,13 @@ classflow/
 ├── README.md
 ├── AGENTS.md              Instructions for AI coding agents
 ├── CLAUDE.md              Points Claude Code to AGENTS.md
+├── index.html             Page that loads the app
+├── src/
+│   ├── main.tsx           Entry point
+│   ├── app/               App start-up
+│   ├── shared/            Code shared by every feature
+│   └── styles/            Tailwind entry point
+├── .github/workflows/     Continuous integration
 └── docs/
     ├── project-context.md
     ├── plan.md
