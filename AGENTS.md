@@ -90,7 +90,7 @@ This repository is public, and the app stores data about children.
 
 ## Git
 
-- `main` is always stable. Do not commit to it directly; work on a branch and merge.
+- `main` is always stable and protected: every change, documentation included, reaches it through a pull request with the CI check (`quality`) green. Do not commit to it directly.
 - One branch per code task, with a prefix: `feat/...`, `fix/...`, `refactor/...`, `chore/...`. Documentation can share a single `docs` branch.
 - Commit messages are in English and follow `type: short summary`, with these types: `docs`, `design`, `feat`, `fix`, `refactor`, `test`, `chore`. Add a short body when the reason is not obvious.
 - One topic per commit.

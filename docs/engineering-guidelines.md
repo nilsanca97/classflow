@@ -50,7 +50,8 @@ Reglas de dependencia **[auto]**, comprobadas con `eslint-plugin-boundaries`:
 
 - Una funcionalidad **no importa el interior de otra**. Si necesita algo, lo importa desde su `index.ts`.
 - `shared/` **no importa nunca** de `features/` ni de `app/`.
-- Solo los archivos de `api/` importan el cliente de Supabase.
+- El paquete `@supabase/supabase-js` solo se importa en las carpetas `api/` y en `src/shared/lib/supabase.ts`, el único archivo que crea el cliente. **[auto]**, con `no-restricted-imports`.
+- El cliente (`@/shared/lib/supabase`) solo lo importan los archivos de `api/`. Se automatizará en la tarea de base de datos; hasta entonces lo comprueba la revisión.
 
 Una carpeta vacía no se crea: `hooks/` o `lib/` aparecen cuando hacen falta.
 
@@ -73,7 +74,8 @@ Cada dato recorre el mismo camino:
 - Modo estricto, con `noUncheckedIndexedAccess` activado. **[auto]**
 - **Imports con el alias `@/`** (que apunta a `src/`) cuando se sale de la carpeta actual: `@/shared/ui/Button` en lugar de `../../../shared/ui/Button`. Dentro de una misma funcionalidad, rutas relativas.
 - **Prohibido `any`.** Si un tipo es desconocido, se usa `unknown` y se comprueba. **[auto]**
-- Sin aserciones `!` (non-null) ni `as` para callar errores, salvo con un comentario que explique por qué es seguro. **[auto]**
+- Sin aserciones `!` (non-null). **[auto]**
+- `as` solo cuando es imprescindible (por ejemplo, `as const`), nunca para callar un error de tipos. Si se usa, un comentario explica por qué es seguro. No lo comprueba el lint: lo comprueba la revisión.
 - **`type` en lugar de `interface`**, por coherencia.
 - **Uniones de literales en lugar de `enum`**: `type View = 'day' | 'week' | 'month'`.
 - **Fechas del calendario como texto `YYYY-MM-DD`**, no como `Date`. Una fecha sin hora guardada como `Date` cambia de día según la zona horaria, y el Planning trabaja con días. Las horas, como `HH:mm`.
@@ -162,7 +164,7 @@ Los nombres van en inglés y describen el dominio con las mismas palabras que la
 
 ## Calidad automática
 
-El proyecto tendrá estos comandos (los nombres exactos se fijarán al crearlo y se listarán en `AGENTS.md`):
+Comandos de calidad del proyecto (la lista completa de comandos está en `AGENTS.md`):
 
 | Comando | Comprueba |
 | --- | --- |
