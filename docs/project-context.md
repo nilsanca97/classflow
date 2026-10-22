@@ -1,6 +1,6 @@
 # Contexto del proyecto
 
-Resumen de quién, para qué y con qué límites se construye ClassFlow. Es el punto de partida para cualquier persona (o agente) que llegue nueva al proyecto. El detalle está en la [especificación](spec/especificacion-v1.3.md), en el [brief de diseño](design/brief-v1.md) y en la [decisión de stack](decisions/0001-tech-stack.md).
+Resumen de quién, para qué y con qué límites se construye ClassFlow. Es el punto de partida para cualquier persona (o agente) que llegue nueva al proyecto. El detalle está en la [especificación](spec/especificacion-v1.4.md), en el [brief de diseño](design/brief-v1.md) y en la [decisión de stack](decisions/0001-tech-stack.md).
 
 ## Qué es
 
@@ -59,7 +59,7 @@ ClassFlow es una aplicación web para que **una profesora de primaria** organice
 
 | Término | En la interfaz | Significado |
 | --- | --- | --- |
-| Asignatura | Subject | Materia del horario, con color y recursos fijos. Hay 16, más Break y Lunch |
+| Asignatura | Subject | Materia del horario, con color y recursos fijos. Hay 14, más Registration, Break y Lunch, que no lo son |
 | Bloque | — | Una asignatura en un día de la semana y una hora del horario base |
 | Sesión | Session | Un bloque en una fecha concreta |
 | Recurso fijo | Always here | Enlace de la asignatura que aparece en todas sus sesiones |

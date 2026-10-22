@@ -13,7 +13,7 @@ The project has its **technical base** in place (build, lint, formatting, tests 
 | Document | Use it for |
 | --- | --- |
 | `docs/project-context.md` | Who the user is, goals, constraints and glossary |
-| `docs/spec/especificacion-v1.3.md` | What the app does. This is the source of truth for behaviour. Always use the highest version in `docs/spec/` |
+| `docs/spec/especificacion-v1.4.md` | What the app does. This is the source of truth for behaviour. Always use the highest version in `docs/spec/` |
 | `docs/design/brief-v1.md` | How it looks and behaves on screen: colours, typography, every screen and the exact UI copy |
 | `docs/engineering-guidelines.md` | How code is written and organised: folders, layers, TypeScript, React, styling, tests and the definition of done. Follow it in every coding task |
 | `docs/decisions/` | Technical decisions and their reasons: `0001-tech-stack.md` (stack) and `0002-data-model.md` (tables, relationships, access rules and database functions) |

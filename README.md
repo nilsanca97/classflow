@@ -75,7 +75,7 @@ The documents are written in Spanish.
 
 | Document | Description |
 | --- | --- |
-| [Specification v1.3](docs/spec/especificacion-v1.3.md) | Current functional specification |
+| [Specification v1.4](docs/spec/especificacion-v1.4.md) | Current functional specification |
 | [Specification changelog](docs/spec/CHANGELOG.md) | What changed between versions, and why. Earlier versions are kept unchanged in the same folder |
 | [Design brief](docs/design/brief-v1.md) | Visual style, colour palettes, navigation and every screen in detail |
 | [Tech stack decision](docs/decisions/0001-tech-stack.md) | The chosen stack, with pros, cons and discarded alternatives |
@@ -120,7 +120,7 @@ classflow/
 - [ ] Implementation
 - [ ] Delivery to the teacher
 
-The detailed plan is in [docs/plan.md](docs/plan.md). Ideas left for later versions are listed at the end of the [specification](docs/spec/especificacion-v1.3.md#fuera-de-alcance-y-mejoras-futuras).
+The detailed plan is in [docs/plan.md](docs/plan.md). Ideas left for later versions are listed at the end of the [specification](docs/spec/especificacion-v1.4.md#fuera-de-alcance-y-mejoras-futuras).
 
 ## Privacy
 

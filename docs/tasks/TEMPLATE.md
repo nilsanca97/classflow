@@ -14,7 +14,7 @@ Una o dos frases: qué existe o qué puede hacer la profesora cuando la tarea es
 
 Qué leer antes de empezar, con secciones concretas:
 
-- Especificación: [sección](../spec/especificacion-v1.3.md#…)
+- Especificación: [sección](../spec/especificacion-v1.4.md#…)
 - Brief: [sección](../design/brief-v1.md#…)
 - Decisiones: [0001](../decisions/0001-tech-stack.md)
 - Normas: [sección](../engineering-guidelines.md#…)

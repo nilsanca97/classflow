@@ -4,7 +4,7 @@
 | --- | --- |
 | **Estado** | Aceptada |
 | **Fecha** | 13 de octubre de 2026 |
-| **Basado en** | [Especificación v1.3](../spec/especificacion-v1.3.md) y [decisión 0001](0001-tech-stack.md) |
+| **Basado en** | [Especificación v1.4](../spec/especificacion-v1.4.md) y [decisión 0001](0001-tech-stack.md) |
 
 ## Contexto
 
@@ -74,12 +74,12 @@ Row Level Security activada **sin ninguna política**: la app no puede leerla ni
 
 ### `subjects`
 
-Asignaturas del horario, incluidos Break y Lunch.
+Asignaturas del horario, incluidos Registration, Break y Lunch.
 
 | Columna | Tipo | Reglas |
 | --- | --- | --- |
 | `name` | `text` | Obligatorio; único por usuaria |
-| `kind` | `text` | `'subject'` o `'break'`. Break y Lunch son `'break'` y no admiten recursos |
+| `kind` | `text` | `'subject'` o `'break'`. Registration, Break y Lunch son `'break'` y no admiten recursos |
 | `color` | `text` | Nombre de la paleta (ver "Colores"). Obligatorio si `kind = 'subject'`; `null` si es `'break'` |
 | `sort_order` | `integer` | Orden en Settings → Subjects |
 
@@ -203,7 +203,7 @@ Un alumno dentro de una lista.
 
 Los colores se guardan como **nombres de la paleta**, no como códigos hexadecimales. Los tonos de cada nombre (cabecera, cuerpo y texto) se definen en el código según el brief.
 
-- **Asignaturas:** 16 nombres, uno por cada pastel del brief. Son **nombres de color neutros** (por ejemplo, `slate`, `sky`, `rose`, `lime`), no nombres de asignatura: si la profesora pone a Music el mismo color que a English, las dos guardan el mismo nombre. La lista exacta y su correspondencia con la tabla del brief se fijan en la tarea de base de datos.
+- **Asignaturas:** 16 nombres, uno por cada pastel del brief (hay 14 asignaturas, así que dos colores empiezan sin usar). Son **nombres de color neutros** (por ejemplo, `slate`, `sky`, `rose`, `lime`), no nombres de asignatura: si la profesora pone a Music el mismo color que a English, las dos guardan el mismo nombre. La lista exacta y su correspondencia con la tabla del brief se fijan en la tarea de base de datos.
 - **Categorías propias:** dos nombres más para Assembly y Others.
 - Una restricción `check` en cada columna de color impide guardar un nombre fuera de la paleta.
 
@@ -227,8 +227,8 @@ Las operaciones sencillas (restaurar una sesión, marcar una casilla, editar un 
 1. **Correos autorizados.** Antes de crear una usuaria, la base de datos comprueba que su correo está en `allowed_emails`. Si no está, el registro se rechaza y la app muestra "This email doesn't have access to ClassFlow yet." El mecanismo exacto (un *hook* de Supabase Auth previo a la creación de la usuaria, o un disparador) se decide en la tarea de implementación.
 2. **Datos iniciales automáticos.** Al crearse la usuaria, una función crea en una sola transacción:
     - Su fila de `profiles`, con el nombre del formulario y las fechas del curso.
-    - Las 16 asignaturas con sus colores iniciales, más Break y Lunch.
-    - Los bloques del horario de la [especificación](../spec/especificacion-v1.3.md#horario-base-de-la-clase).
+    - Las 14 asignaturas con sus colores iniciales, más Registration, Break y Lunch.
+    - Los bloques del horario de la [especificación](../spec/especificacion-v1.4.md#horario-base-de-la-clase).
     - Las 16 categorías.
 3. En la v1, ese horario es el de la profesora, porque es la única autorizada. Cuando exista el editor de horario, la función creará un horario vacío o una plantilla.
 4. El horario y los colores iniciales viven en una **migración**, no en el código del frontend.

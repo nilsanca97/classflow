@@ -2,6 +2,24 @@
 
 Cada versión de la especificación se conserva como archivo propio y no se modifica después de publicarse. Aquí se resume qué cambió en cada una y por qué.
 
+## v1.4 – 22 de octubre de 2026
+
+[especificacion-v1.4.md](especificacion-v1.4.md)
+
+Recoge lo decidido al revisar con la profesora el diseño de la vista semanal (tanda 1), para que el horario de la app coincida con lo que ella ha aprobado.
+
+### Horario base y datos iniciales
+
+- **Lunch pasa a ser un solo bloque de 12:20 a 14:00.** Desaparece el Break de 13:00 a 14:00: en la práctica es un único hueco y dos filas grises seguidas no aportan nada.
+- **El viernes por la tarde usa las mismas franjas que el resto de días:** Fine Motor Skills de 14:00 a 14:40 y Golden Time de 14:40 a 15:40, en lugar de 14:00–15:00 y 15:00–15:40. Así la tabla queda alineada y sin horas exactas dentro de las celdas.
+- **El horario termina a las 15:40.** Se quitan el Break de 15:40 a 16:00 y Snack and Storytime de 16:00 a 16:30, que no hacen falta en la app.
+- **Registration deja de ser una asignatura.** Es el momento de pasar lista: no tiene ni tendrá nunca recursos, así que se trata como Break y Lunch (sin color ni recursos, no se puede pulsar). Quedan **14 asignaturas**; la paleta sigue teniendo 16 colores.
+
+### Planning
+
+- La vista semanal ya no necesita mostrar la hora exacta de un bloque que no coincide con su fila: todos los bloques coinciden con las franjas.
+- El día actual se marca con un contorno en cada una de sus sesiones, no con un contenedor que agrupa toda la columna.
+
 ## v1.3 – 13 de octubre de 2026
 
 [especificacion-v1.3.md](especificacion-v1.3.md)
