@@ -25,13 +25,15 @@ Rama `docs`.
 
 A partir de la especificación v1.4 y del brief. Cada tanda se revisa antes de empezar la siguiente; las pantallas se guardan en `docs/design/screens/`.
 
-- [ ] **Sistema de diseño:** colores, tipografía, botones, campos, celdas, ventanas, menús y confirmaciones
+- [x] **Sistema de diseño:** colores, tipografía, botones, campos, celdas, ventanas, menús y confirmaciones ([exportación HTML](design/tanda-1-week.html)). Se da por válido; se ajustará si hace falta tras la prueba con la profesora
 - [x] **Tanda 1:** barra superior y vista semanal del Planning
 - [x] Enseñar la tanda 1 a la profesora y recoger su opinión
 - [ ] **Tanda 2:** resto del Planning (vistas diaria y mensual, ventana de sesión, copiar recursos, anular, eventos, días sin clase, asignatura)
 - [ ] **Tanda 3:** Listas (página, lista abierta, nueva lista)
 - [ ] **Tanda 4:** Alumnos, Settings, pantallas de acceso, estados de carga, error y sin conexión, y estados vacíos
 - [ ] Revisar que están todas las pantallas de la lista del brief
+- [ ] **Prototipo clicable** de los flujos principales (ventana de sesión, anular y eventos, listas, Settings) con datos de ejemplo
+- [ ] Probar el prototipo con la profesora y ajustar el diseño antes de programar esas pantallas
 
 ## Fase 2 – Decisiones técnicas
 
@@ -48,7 +50,7 @@ Cada decisión se documenta en `docs/decisions/`, con las opciones valoradas y e
 Una rama por tarea (`feat/...`), fusionada en `main` cuando funciona. El orden busca tener cuanto antes algo que la profesora pueda probar.
 
 - [x] **Base técnica** ([tarea 0001](tasks/0001-project-setup.md)): proyecto, lint, formato, pruebas e integración continua
-- [ ] **Base visual:** tokens del sistema de diseño, fuentes, favicon, barra superior y navegación
+- [ ] **Base visual** ([tarea 0002](tasks/0002-visual-foundation.md)): tokens del sistema de diseño, fuentes, favicon, barra superior y navegación
 - [ ] **Base de datos:** proyecto de Supabase, esquema como migraciones, reglas de acceso por usuaria y tipos generados
 - [ ] **Acceso:** registro con correos autorizados, inicio de sesión por enlace y cierre de sesión
 - [ ] **Datos iniciales:** carga del horario base y las asignaturas en la cuenta
