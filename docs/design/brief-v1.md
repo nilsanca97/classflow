@@ -1,12 +1,12 @@
 # Brief de diseño – ClassFlow (v1)
 
-Sep 30, 2026 · @Nil · actualizado el 13 de octubre de 2026 (listas de comprobación, según la especificación v1.3)
+Sep 30, 2026 · @Nil · actualizado el 22 de octubre de 2026 (revisión de la tanda 1, según la especificación v1.4)
 
 ## Cómo usar este brief
 
-Este brief define el diseño visual y de interacción de la v1 y se entrega junto a la **[Especificación v1.3](../spec/especificacion-v1.3.md)** (13/10/2026). Con los dos documentos se debe poder diseñar todas las pantallas sin más preguntas.
+Este brief define el diseño visual y de interacción de la v1 y se entrega junto a la **[Especificación v1.4](../spec/especificacion-v1.4.md)** (22/10/2026). Con los dos documentos se debe poder diseñar todas las pantallas sin más preguntas.
 
-- **El brief y la especificación v1.3 deben coincidir.** Si aun así hubiera una discrepancia en algo visual o de interacción, prevalece el brief; en el comportamiento, la especificación.
+- **El brief y la especificación v1.4 deben coincidir.** Si aun así hubiera una discrepancia en algo visual o de interacción, prevalece el brief; en el comportamiento, la especificación.
 - **La interfaz está en inglés.** Los textos entre comillas en inglés ("Add event", "Paste a link…") son textos literales de la interfaz.
 - **Dispositivo:** portátil con Chrome. Diseñar para 1366 × 768 como mínimo y que escale bien hasta 1920 × 1080. El móvil queda fuera de la v1.
 - **Fecha de ejemplo para los diseños:** martes 29 de septiembre de 2026 como "hoy", semana del 28 de septiembre al 2 de octubre.
@@ -38,7 +38,7 @@ Sensación **cálida y amable**: fondo crema, tonos pastel suaves, esquinas redo
 | Texto terciario, horas, ayudas | #888780 |  |
 | Bordes de campos | #D3D1C7 | 0,5–1 px |
 | Separadores | #E5E3DC / #F1EFE8 |  |
-| Apagado (fines de semana, Break, Lunch) | #F1EFE8 / #F4F2EC | Texto #888780 |
+| Apagado (fines de semana, Registration, Break, Lunch) | #F1EFE8 / #F4F2EC | Texto #888780 |
 | Coral: fondo | #F5C4B3 | Pestaña activa, botón principal, etiqueta "Today" |
 | Coral: texto | #712B13 | Sobre coral y en enlaces de acción |
 | Coral: borde | #F0997B | Caja del día actual, campo activo |
@@ -56,20 +56,20 @@ Sensación **cálida y amable**: fondo crema, tonos pastel suaves, esquinas redo
 
 ### Iconos y formas
 
-- **Tabler Icons** (versión de contorno), a 16–18 px. Iconos clave: pin (recurso fijo), brand-google-drive, brand-youtube, link (enlace genérico), notes (tiene notas), star (evento), beach (día sin clase), dots (menú ⋯), pencil, trash, calendar-off (anular), settings, mail (enlace enviado), download (exportar), logout (cerrar sesión), wifi-off (sin conexión), alert-triangle (aviso).
+- **Tabler Icons** (versión de contorno), a 16–18 px. Iconos clave: pin (recurso fijo), brand-google-drive, brand-youtube, link (enlace genérico), file (tiene notas), star (evento), beach (día sin clase), dots (menú ⋯), pencil, trash, calendar-off (anular), settings, mail (enlace enviado), download (exportar), logout (cerrar sesión), wifi-off (sin conexión), alert-triangle (aviso).
 - Radios: 8 px en celdas y campos, 10–12 px en tarjetas y ventanas, 999 px en etiquetas, selectores y botones de filtro.
 - Sombras muy suaves solo en ventanas y menús desplegables.
 - Área mínima pulsable de 32 × 32 px. Estados de hover visibles en todo lo pulsable y foco visible con teclado.
 
 ## Paletas
 
-### Asignaturas (16 pasteles, color inicial de cada una)
+### Asignaturas (paleta de 16 pasteles y color inicial de cada una)
 
-Cada asignatura usa tres tonos: **cabecera** (franja con el nombre), **cuerpo** (fondo de la celda) y **texto** (nombre sobre la cabecera). Estos 16 tríos forman también la paleta cerrada que la profesora puede elegir en la ventana de la asignatura; los colores se pueden repetir entre asignaturas.
+Cada asignatura usa tres tonos: **cabecera** (franja con el nombre), **cuerpo** (fondo de la celda) y **texto** (nombre sobre la cabecera). Estos 16 tríos forman la paleta cerrada que la profesora puede elegir en la ventana de la asignatura; los colores se pueden repetir entre asignaturas. Hay **14 asignaturas**: los dos tríos marcados como "sin asignatura" no son el color inicial de ninguna, pero siguen en la paleta.
 
-| Asignatura | Cabecera | Cuerpo | Texto |
+| Color inicial de | Cabecera | Cuerpo | Texto |
 | --- | --- | --- | --- |
-| Registration | #C9D3DE | #EFF3F7 | #2F3E4F |
+| (sin asignatura) | #C9D3DE | #EFF3F7 | #2F3E4F |
 | English | #B5D4F4 | #E6F1FB | #0C447C |
 | PE | #F7C1C1 | #FCEBEB | #791F1F |
 | Maths | #C0DD97 | #EAF3DE | #27500A |
@@ -84,9 +84,9 @@ Cada asignatura usa tres tonos: **cabecera** (franja con el nombre), **cuerpo** 
 | PSHE | #E0C3D8 | #F7EEF4 | #5E2D50 |
 | Topic | #BFD8C4 | #EEF5EF | #2E4F35 |
 | Golden Time | #F0D58A | #FBF3DC | #5E4608 |
-| Snack and Storytime | #BCC8F2 | #EDF0FC | #27336B |
+| (sin asignatura) | #BCC8F2 | #EDF0FC | #27336B |
 
-Break y Lunch no son asignaturas: franja gris #F1EFE8 con texto #888780.
+Registration, Break y Lunch no son asignaturas: franja gris #F1EFE8, sin color de asignatura (ver la vista semanal).
 
 ### Categorías de listas (16)
 
@@ -97,7 +97,7 @@ Las categorías que coinciden con una asignatura usan su color de cabecera (si l
 | Assembly | #E6C3CB | #5E2E3A |
 | Others | #E3DED3 | #444441 |
 
-Lista completa, en este orden: English, Maths, Computing, Phonics, PSHE, Music, Topic, Reading Groups, Swimming, Oracy, PE, Fine Motor Skills, Social Skills, Assembly, Golden Time, Others. Registration y Snack and Storytime **no** son categorías.
+Lista completa, en este orden: English, Maths, Computing, Phonics, PSHE, Music, Topic, Reading Groups, Swimming, Oracy, PE, Fine Motor Skills, Social Skills, Assembly, Golden Time, Others. Registration **no** es una categoría.
 
 ### Casillas de las listas
 
@@ -147,15 +147,16 @@ No hay botón "Subjects" en el encabezado: las asignaturas se gestionan desde Se
 Tabla como el horario en papel: columna de horas a la izquierda y cinco columnas, de lunes a viernes.
 
 - **Cabeceras de día:** "Mon 28", "Tue 29"… en texto secundario. La de hoy es una píldora coral (#F5C4B3, texto #712B13) con el texto "Tue 29 · Today".
-- **Columna de hoy:** justo debajo de su cabecera, un **rectángulo contenedor que agrupa todas las celdas del día**, con **borde coral de 2 px (#F0997B), sin relleno**, radio 12 px y 6 px de margen interior. Las celdas de hoy no llevan borde propio. Las filas siguen alineadas con las demás columnas.
-- **Filas:** una por franja horaria común, con la hora de inicio en la columna izquierda. La altura de cada fila se adapta a la celda con más contenido.
+- **Columna de hoy:** cada sesión del día va dentro de su propio **contorno coral de 2 px (#F0997B), sin relleno**, con radio 12 px y 6 px de margen interior. No es un contenedor único para toda la columna: Registration, Break y Lunch no llevan contorno. Las filas siguen alineadas con las demás columnas.
+- **Filas:** una por franja horaria común, con el **rango de la franja** en la columna izquierda ("9:15–10:00"). La altura de cada fila se adapta a la celda con más contenido. Todos los bloques del horario coinciden con las franjas, también los del viernes, así que las celdas no muestran horas.
 - **Celda de asignatura:** radio 8 px, sin borde.
   - **Cabecera:** franja con el nombre de la asignatura en su tono de cabecera, texto en su tono de texto, peso 500–600.
-  - Junto al nombre, **icono de nota** si la sesión tiene notas.
-  - Si la hora del bloque no coincide con la fila, la hora exacta va a la derecha de la cabecera en pequeño (viernes: Fine Motor Skills "14:00–15:00", Golden Time "15:00–15:40").
+  - Junto al nombre, **icono de nota** (icono de documento, `file`) si la sesión tiene notas.
   - **Cuerpo:** fondo en el tono claro de la asignatura, con los recursos como **líneas de texto con icono** (pin para los fijos; Drive, YouTube o enlace para los del día), primero los fijos. Máximo 3 líneas y, si hay más, "+N more".
   - Sin recursos, la celda queda compacta: solo la cabecera.
-- **Break y Lunch:** franjas grises compactas (#F1EFE8) con el texto centrado. No se pueden pulsar.
+- **Registration:** **no es una asignatura**. Es el momento de pasar lista y no tiene ni tendrá nunca recursos, por eso **no lleva cabecera de color**: franja gris compacta (#F1EFE8) con el texto centrado en #2F3E4F, peso 600. No se puede pulsar.
+- **Break y Lunch:** franjas grises compactas (#F1EFE8) con el texto centrado en #888780. No se pueden pulsar. Lunch es **una sola fila de 12:20 a 14:00**.
+- **Fin del día:** la última fila es la de 14:40–15:40. Lo que en papel va después (Break de 15:40 a 16:00 y Snack and Storytime) no aparece en la app.
 - **Interacción:** pulsar un recurso lo abre en una pestaña nueva. Pulsar la celda fuera de un recurso abre la ventana de la sesión.
 - **Sesión anulada:** fondo rayado suave (diagonales #F1EFE8 / #FBF8F2), borde discontinuo gris, cabecera en tono muy apagado con el nombre tachado y la línea "Cancelled · \[motivo\]" con icono calendar-off. No muestra recursos. Pulsarla abre su ventana.
 - **Evento puntual:** fondo blanco, **borde discontinuo de 1,5 px #888780**, icono de estrella antes del nombre, recursos como en cualquier celda. Ocupa todas las filas que abarca su horario y muestra su hora exacta. Si sustituye sesiones, debajo, en pequeño: "Replaces ~~English~~ · ~~Maths~~ — Cultural week".
@@ -229,7 +230,7 @@ Ventana centrada, de unos 480–520 px de ancho.
 
 Se abre desde **Settings → Subjects** (con la lista de todas) y desde **"⋯" → "Edit Maths subject"** en una sesión (solo esa asignatura).
 
-- **Desde Settings:** a la izquierda, la lista de las 16 asignaturas con su punto de color; a la derecha, la asignatura seleccionada. Break y Lunch no aparecen.
+- **Desde Settings:** a la izquierda, la lista de las 14 asignaturas con su punto de color; a la derecha, la asignatura seleccionada. Registration, Break y Lunch no aparecen.
 - **Desde una sesión:** título "Maths · all sessions" y la línea "Changes here apply to every Maths session." Al cerrar, se vuelve a la sesión.
 - **Contenido:**
   - Nombre (solo lectura) y cuándo se da ("Mon–Fri · 10:30–11:25", solo informativo).
@@ -347,7 +348,7 @@ El botón principal muestra un indicador de carga mientras se envía el enlace. 
 
 Ventana centrada y ancha (unos 680 px), con una navegación lateral de tres secciones:
 
-- **Subjects:** la ventana de la asignatura descrita en el Planning, con la lista de las 16 a la izquierda.
+- **Subjects:** la ventana de la asignatura descrita en el Planning, con la lista de las 14 a la izquierda.
 - **Account:**
   - "Your name": campo editable con guardado automático.
   - "Email": solo lectura.
@@ -376,7 +377,7 @@ Usar datos realistas: el horario de la especificación, unos 25 alumnos con nomb
 
 **Planning**
 
-- [ ] Semana actual con la columna de hoy, recursos, "+N more", notas, Break/Lunch y las horas exactas del viernes
+- [ ] Semana actual con la columna de hoy, recursos, "+N more", notas y Break/Lunch ✓ ([capturas](screens/) y [exportación HTML](tanda-1-week.html))
 - [ ] Semana con un festivo, una sesión anulada, un evento que ocupa varias filas y "Free time"
 - [ ] Vista diaria normal y con un evento que sustituye sesiones
 - [ ] Vista mensual de septiembre de 2026 con festivos y eventos
@@ -416,6 +417,6 @@ Usar datos realistas: el horario de la especificación, unos 25 alumnos con nomb
 Este brief se mantiene alineado con la especificación vigente. Para no duplicar información:
 
 - Los cambios entre versiones, con sus motivos, están en el [historial de la especificación](../spec/CHANGELOG.md).
-- Las funciones que quedan fuera de la v1 y las mejoras futuras están al final de la [especificación v1.3](../spec/especificacion-v1.3.md#fuera-de-alcance-y-mejoras-futuras).
+- Las funciones que quedan fuera de la v1 y las mejoras futuras están al final de la [especificación v1.4](../spec/especificacion-v1.4.md#fuera-de-alcance-y-mejoras-futuras).
 
 **Nota para desarrollo:** los recursos fijos de cada asignatura se pueden precargar con los datos iniciales de la cuenta, igual que el horario y los colores, si la profesora los facilita antes de la entrega.

@@ -18,15 +18,16 @@ Rama `docs`.
 - [x] Especificación v1.3 y brief actualizados (listas de comprobación)
 - [x] [Normas de código y de arquitectura](engineering-guidelines.md)
 - [x] [Plantilla de tareas para agentes](tasks/README.md)
+- [x] Especificación v1.4 y brief actualizados (revisión de la tanda 1)
 - [ ] Fusionar `docs` en `main`
 
 ## Fase 1 – Diseño
 
-A partir de la especificación v1.3 y del brief. Cada tanda se revisa antes de empezar la siguiente; las pantallas se guardan en `docs/design/screens/`.
+A partir de la especificación v1.4 y del brief. Cada tanda se revisa antes de empezar la siguiente; las pantallas se guardan en `docs/design/screens/`.
 
 - [ ] **Sistema de diseño:** colores, tipografía, botones, campos, celdas, ventanas, menús y confirmaciones
-- [ ] **Tanda 1:** barra superior y vista semanal del Planning
-- [ ] Enseñar la tanda 1 a la profesora y recoger su opinión
+- [x] **Tanda 1:** barra superior y vista semanal del Planning
+- [x] Enseñar la tanda 1 a la profesora y recoger su opinión
 - [ ] **Tanda 2:** resto del Planning (vistas diaria y mensual, ventana de sesión, copiar recursos, anular, eventos, días sin clase, asignatura)
 - [ ] **Tanda 3:** Listas (página, lista abierta, nueva lista)
 - [ ] **Tanda 4:** Alumnos, Settings, pantallas de acceso, estados de carga, error y sin conexión, y estados vacíos
@@ -84,7 +85,7 @@ Decisiones provisionales o mejoras pendientes que no bloquean el trabajo, pero q
 
 ## Más adelante
 
-Ideas ya anotadas para versiones futuras; el detalle está al final de la [especificación](spec/especificacion-v1.3.md#fuera-de-alcance-y-mejoras-futuras).
+Ideas ya anotadas para versiones futuras; el detalle está al final de la [especificación](spec/especificacion-v1.4.md#fuera-de-alcance-y-mejoras-futuras).
 
 - Personalizar el horario: crear, eliminar y modificar asignaturas
 - Registro abierto a cualquier profesora (depende del editor de horario)
