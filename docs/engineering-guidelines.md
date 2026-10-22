@@ -154,7 +154,7 @@ Los nombres van en inglés y describen el dominio con las mismas palabras que la
 
 ## Pruebas
 
-- **Toda la lógica de `lib/` tiene pruebas**, incluidos los casos límite de la especificación: generar las sesiones de una semana, la hora exacta del viernes, solapes al anular, días sin clase, progreso de las listas, alumnos dados de baja.
+- **Toda la lógica de `lib/` tiene pruebas**, incluidos los casos límite de la especificación: generar las sesiones de una semana, solapes al anular, días sin clase, progreso de las listas, alumnos dados de baja.
 - **Los componentes con interacción importante** se prueban con Testing Library, desde el punto de vista de la usuaria: se buscan elementos por su rol y su texto, no por clases ni identificadores internos.
 - Se prueba el **comportamiento**, no la implementación.
 - **Sin pruebas de instantánea** (snapshots).
